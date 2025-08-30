@@ -25,7 +25,6 @@ class onBoardingPage extends StatelessWidget {
       child: Column(
         children: [
           Image.asset(image),
-
           Text(
             title,
             style: Theme.of(
