@@ -1,6 +1,3 @@
-import 'package:e_commercee/utils/constants/images.dart' show UImages;
-import 'package:e_commercee/utils/constants/sizes.dart' show USizes;
-import 'package:e_commercee/utils/constants/texts.dart' show UTexts;
 import 'package:e_commercee/utils/helpers/device_helpers.dart' show UDeviceHelper;
 import 'package:flutter/material.dart';
 
@@ -16,27 +13,33 @@ class onBoardingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(
-        right: USizes.defaultSpace,
-        left: USizes.defaultSpace,
-        top: UDeviceHelper.getAppBarHeight(),
-      ),
-      child: Column(
-        children: [
-          Image.asset(image),
-          Text(
-            title,
-            style: Theme.of(
-              context,
-            ).textTheme.headlineMedium,
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        const SizedBox(height: 55),
+        Padding(
+          padding: EdgeInsets.only(
+            // right: USizes.defaultSpace,
+            // left: USizes.defaultSpace,
+            top: UDeviceHelper.getAppBarHeight(),
           ),
-          Text(
-          subtitle,
-            textAlign: TextAlign.center,
+          child: Column(
+            children: [
+              Image.asset(image),
+              Text(
+                title,
+                style: Theme.of(
+                  context,
+                ).textTheme.headlineMedium,
+              ),
+              Text(
+              subtitle,
+                textAlign: TextAlign.center,
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

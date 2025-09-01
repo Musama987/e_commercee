@@ -17,6 +17,9 @@ dependencies:
   # UTILITIES
   smooth_page_indicator: ^1.2.1
 
+  #state Management
+  get: ^4.7.2
+
 
 
 #-----------------------
