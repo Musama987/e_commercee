@@ -1,5 +1,6 @@
 import 'package:e_commercee/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'utils/theme/theme.dart';
 
@@ -9,7 +10,7 @@ class MyApp extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       themeMode: ThemeMode.system,
       theme: UAppTheme.lightTheme,
       darkTheme: UAppTheme.darkTheme,

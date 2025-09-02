@@ -9,4 +9,17 @@ class UTexts{
   static const String onboardingSubtitle2 = "Discover top-quality products at the best prices with a seamless shopping experience";
   static const String onboardingSubtitle3 = "Get your favorite items delivered to your doorstep, anytime, anywhere";
 
+  // Login Screen
+
+  static const String loginTitle = 'Shop Smarter';
+  static const String loginSubtitle = 'Log in to Access Exclusive Deals and Simplify Your Shopping Experience';
+  static const String email = 'Email';
+  static const String password = 'Password';
+  static const String rememberMe = 'Remember Me';
+  static const String forgetPassword = 'Forget Password?';
+  static const String signIn = 'Sign In';
+  static const String createAccount = 'Create Account';
+  static const String orSignInWith = 'Or Sign In With';
+
+
 }
