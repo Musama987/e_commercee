@@ -3,8 +3,8 @@ import 'package:e_commercee/utils/helpers/device_helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart' show SmoothPageIndicator, ExpandingDotsEffect;
 
-class onBoardingDotNavigation extends StatelessWidget {
-  const onBoardingDotNavigation({
+class OnBoardingDotNavigation extends StatelessWidget {
+  const OnBoardingDotNavigation({
     super.key,
   });
 

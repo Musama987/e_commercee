@@ -1,8 +1,8 @@
 import 'package:e_commercee/utils/helpers/device_helpers.dart' show UDeviceHelper;
 import 'package:flutter/material.dart';
 
-class onBoardingPage extends StatelessWidget {
-  const onBoardingPage({
+class OnBoardingPage extends StatelessWidget {
+  const OnBoardingPage({
     super.key, required this.image, required this.title, required this.subtitle,
   });
 
