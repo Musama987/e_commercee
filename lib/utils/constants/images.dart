@@ -9,4 +9,10 @@ class UImages{
   static const String facebookIcon = 'assets/logo/facebook.png';
   static const String googleIcon = 'assets/logo/google.png';
 
+  //Reset Password image
+ static const String resetpasswordImage = 'assets/images/resetpasswordimage.png';
+
+ //Account created Image
+ static const String accountcreatedImage = 'assets/images/accountcreatedimage.png';
+
 }
