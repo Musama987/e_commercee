@@ -1,8 +1,6 @@
 import 'package:e_commercee/common/style/padding.dart';
 import 'package:e_commercee/common/widgets/button/elevated_button.dart';
-import 'package:e_commercee/utils/constants/images.dart';
 import 'package:e_commercee/utils/constants/sizes.dart';
-import 'package:e_commercee/utils/constants/texts.dart';
 import 'package:e_commercee/utils/helpers/device_helpers.dart';
 import 'package:flutter/material.dart';
 
