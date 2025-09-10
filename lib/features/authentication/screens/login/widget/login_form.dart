@@ -1,6 +1,7 @@
 import 'package:e_commercee/common/widgets/button/elevated_button.dart';
 import 'package:e_commercee/features/authentication/screens/forget_password/forget_password.dart';
 import 'package:e_commercee/features/authentication/screens/signup/signup.dart';
+import 'package:e_commercee/navigation_menu.dart' show NavigationMenu;
 import 'package:e_commercee/utils/constants/sizes.dart';
 import 'package:e_commercee/utils/constants/texts.dart';
 import 'package:flutter/material.dart';
@@ -64,7 +65,7 @@ class _ULoginFormState extends State<ULoginForm> {
 
         SizedBox(height: USizes.spaceBtwSections),
         //Sign in
-        UElevatedButton(onPressed: () {}, child: Text(UTexts.signIn)),
+        UElevatedButton(onPressed: ()=>Get.to(()=>NavigationMenu()), child: Text(UTexts.signIn)),
         SizedBox(height: USizes.spaceBtwItems / 2),
         //create Account
         SizedBox(
