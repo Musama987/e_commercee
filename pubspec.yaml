@@ -42,6 +42,7 @@ flutter:
   assets:
     - assets/logo/
     - assets/images/
+    - assets/icons/categories/
 
 
   #---------[Fonts]-------

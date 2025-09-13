@@ -59,8 +59,10 @@ class UTexts {
       'Congratulations! Your account has been successfully created. You can now explore all the amazing features, start personalizing your experience, and enjoy seamless access to our services. Let’s get started!';
 
   //homeappbar
-static const String homeappbartitle = 'GoodMorning';
-static const String homeappbarsubtitle = 'Unknown Pro';
-static const String searchBarTitle = 'Search in Store';
+  static const String homeappbartitle = 'GoodMorning';
+  static const String homeappbarsubtitle = 'Unknown Pro';
+  static const String searchBarTitle = 'Search in Store';
+  static const String hometitlecategory = 'Popular Categories';
+
 
 }

@@ -2,6 +2,7 @@ import 'package:e_commercee/common/textfields/searchbar.dart';
 import 'package:e_commercee/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'widgets/home_appbar.dart';
+import 'widgets/home_categories.dart';
 import 'widgets/primary_header_container.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -21,9 +22,14 @@ class HomeScreen extends StatelessWidget {
           ///Primary Header Container
           UPrimaryHeaderContainerHome(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 //appbar
                 UHomeAppBar(),
+                SizedBox(height: USizes.spaceBtwSections),
+
+                //Home Categories
+                UHomeCategories(),
               ],
             ),
           ),
