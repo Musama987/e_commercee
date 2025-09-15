@@ -22,6 +22,13 @@ class UImages{
   static const String sofaIcon = 'assets/icons/categories/Sofa.png';
   static const String sneakersIcon = 'assets/icons/categories/Sneakers.png';
   // static const String accountcreatedImage = 'assets/images/accountcreatedimage.png';
+//banners
+  static const String banner1 = 'assets/banners/banner1.png';
+  static const String banner2 = 'assets/banners/banner2.jpg';
+  static const String banner3 = 'assets/banners/banner3.jpg';
+  static const String banner4 = 'assets/banners/banner1.png';
+  static const String banner5 = 'assets/banners/banner5.jpg';
+
 
 
 }

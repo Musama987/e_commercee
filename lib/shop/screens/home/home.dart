@@ -1,8 +1,11 @@
 import 'package:e_commercee/common/textfields/searchbar.dart';
+import 'package:e_commercee/shop/controllers/home/home_controller.dart';
 import 'package:e_commercee/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'widgets/home_appbar.dart';
 import 'widgets/home_categories.dart';
+import 'widgets/home_promo_slider.dart';
 import 'widgets/primary_header_container.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -10,34 +13,52 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(HomeController());
     return Scaffold(
-      body: Stack(
+      body: Column(
+        // upper Parts
         children: [
-          //height upgrade + 20
-          SizedBox(
-            height: USizes.primaryHeaderHeight + 10,
-            // color: Colors.amber,
+          Stack(
+            children: [
+              //height upgrade + 20
+              SizedBox(
+                height: USizes.primaryHeaderHeight + 10,
+                // color: Colors.amber,
+              ),
+
+              ///Primary Header Container
+              UPrimaryHeaderContainerHome(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    //appbar
+                    UHomeAppBar(),
+                    SizedBox(height: USizes.spaceBtwSections),
+
+                    //Home Categories
+                    UHomeCategories(),
+                  ],
+                ),
+              ),
+
+              //search bar
+              USearchBar(),
+            ],
           ),
 
-          ///Primary Header Container
-          UPrimaryHeaderContainerHome(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                //appbar
-                UHomeAppBar(),
-                SizedBox(height: USizes.spaceBtwSections),
+          // lower parts
+          //Banners
+          Padding(
+            padding: const EdgeInsets.all(USizes.defaultSpace),
+            child: UPromoSliderHome(),
 
-                //Home Categories
-                UHomeCategories(),
-              ],
-            ),
           ),
-
-          //search bar
-          USearchBar(),
         ],
       ),
     );
   }
 }
+
+
+
+
