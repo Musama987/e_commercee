@@ -1,4 +1,6 @@
+import 'package:e_commercee/common/products/product_cards/prduct_card_vertical.dart';
 import 'package:e_commercee/common/textfields/searchbar.dart';
+import 'package:e_commercee/common/texts/section_heading.dart';
 import 'package:e_commercee/shop/controllers/home/home_controller.dart';
 import 'package:e_commercee/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
@@ -50,15 +52,27 @@ class HomeScreen extends StatelessWidget {
           //Banners
           Padding(
             padding: const EdgeInsets.all(USizes.defaultSpace),
-            child: UPromoSliderHome(),
+            child: Column(
+              children: [
+                UPromoSliderHome(),
+                const SizedBox(height: USizes.spaceBtwSections),
 
+                //Vertical product Categories
+                USectionHeadingHome(
+                  title: 'Popular Products',
+                  onPressed: () {},
+                ),
+                const SizedBox(height: USizes.spaceBtwSections),
+
+                //vertical cards
+                UProductCardVertical(),
+              ],
+            ),
           ),
         ],
       ),
     );
   }
 }
-
-
 
 
