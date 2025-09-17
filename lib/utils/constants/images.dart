@@ -29,6 +29,13 @@ class UImages{
   static const String banner4 = 'assets/banners/banner1.png';
   static const String banner5 = 'assets/banners/banner5.jpg';
 
+  //products card home
+  static const String product1 = 'assets/products/product1.png';
+  static const String product2 = 'assets/products/product2.png';
+  static const String product3 = 'assets/products/product3.png';
+  static const String product4 = 'assets/products/product2.png';
+  static const String product5 = 'assets/products/product1.png';
+
 
 
 }

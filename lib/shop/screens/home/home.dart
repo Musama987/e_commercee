@@ -1,6 +1,7 @@
 import 'package:e_commercee/common/products/product_cards/prduct_card_vertical.dart';
 import 'package:e_commercee/common/textfields/searchbar.dart';
 import 'package:e_commercee/common/texts/section_heading.dart';
+import 'package:e_commercee/common/widgets/layouts/grid_layout_home.dart';
 import 'package:e_commercee/shop/controllers/home/home_controller.dart';
 import 'package:e_commercee/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
@@ -17,59 +18,62 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(HomeController());
     return Scaffold(
-      body: Column(
-        // upper Parts
-        children: [
-          Stack(
-            children: [
-              //height upgrade + 20
-              SizedBox(
-                height: USizes.primaryHeaderHeight + 10,
-                // color: Colors.amber,
-              ),
-
-              ///Primary Header Container
-              UPrimaryHeaderContainerHome(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    //appbar
-                    UHomeAppBar(),
-                    SizedBox(height: USizes.spaceBtwSections),
-
-                    //Home Categories
-                    UHomeCategories(),
-                  ],
-                ),
-              ),
-
-              //search bar
-              USearchBar(),
-            ],
-          ),
-
-          // lower parts
-          //Banners
-          Padding(
-            padding: const EdgeInsets.all(USizes.defaultSpace),
-            child: Column(
+      body: SingleChildScrollView(
+        child: Column(
+          // upper Parts
+          children: [
+            Stack(
               children: [
-                UPromoSliderHome(),
-                const SizedBox(height: USizes.spaceBtwSections),
-
-                //Vertical product Categories
-                USectionHeadingHome(
-                  title: 'Popular Products',
-                  onPressed: () {},
+                //height upgrade + 20
+                SizedBox(
+                  height: USizes.primaryHeaderHeight + 10,
+                  // color: Colors.amber,
                 ),
-                const SizedBox(height: USizes.spaceBtwSections),
 
-                //vertical cards
-                UProductCardVertical(),
+                ///Primary Header Container
+                UPrimaryHeaderContainerHome(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      //appbar
+                      UHomeAppBar(),
+                      SizedBox(height: USizes.spaceBtwSections),
+
+                      //Home Categories
+                      UHomeCategories(),
+                    ],
+                  ),
+                ),
+
+                //search bar
+                USearchBar(),
               ],
             ),
-          ),
-        ],
+
+            // lower parts
+            //Banners
+            Padding(
+              padding: const EdgeInsets.all(USizes.defaultSpace),
+              child: Column(
+                children: [
+                  UPromoSliderHome(),
+                  const SizedBox(height: USizes.spaceBtwSections),
+
+                  //Vertical product Categories
+                  USectionHeadingHome(
+                    title: 'Popular Products',
+                    onPressed: () {},
+                  ),
+                  const SizedBox(height: USizes.spaceBtwSections),
+
+                  //vertical cards
+                  // UProductCardVertical(),
+                  UGridLayoutHome(),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

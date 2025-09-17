@@ -31,7 +31,7 @@ class UCircularContainer extends StatelessWidget {
       padding: padding,
       margin: margin,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10000),
+        borderRadius: BorderRadius.circular(1000),
         color: backgroundColor,
       ),
       child: child,
