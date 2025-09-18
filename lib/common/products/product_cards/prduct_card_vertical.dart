@@ -1,8 +1,8 @@
 import 'package:e_commercee/common/custom_shapes/clipper/rounded_container.dart';
-import 'package:e_commercee/common/custom_shapes/rounded_edges_container.dart';
 import 'package:e_commercee/common/home_banner_images/rounded_images.dart';
 import 'package:e_commercee/common/icons/circular_icons.dart';
 import 'package:e_commercee/common/style/shadow.dart';
+import 'package:e_commercee/common/texts/product_price_text.dart';
 import 'package:e_commercee/common/texts/product_title_text.dart';
 import 'package:e_commercee/utils/constants/colors.dart';
 import 'package:e_commercee/utils/constants/images.dart';
@@ -18,7 +18,7 @@ class UProductCardVertical extends StatelessWidget {
   Widget build(BuildContext context) {
     final dark = UHelperFunctions.isDarkMode(context);
     return GestureDetector(
-      onTap: (){},
+      onTap: () {},
       child: Container(
         width: 180,
         padding: const EdgeInsets.all(1),
@@ -61,7 +61,10 @@ class UProductCardVertical extends StatelessWidget {
                   Positioned(
                     right: 0,
                     top: 0,
-                    child: UCircularIcon(icon: Iconsax.heart5, color: Colors.red),
+                    child: UCircularIcon(
+                      icon: Iconsax.heart5,
+                      color: Colors.red,
+                    ),
                   ),
                 ],
               ),
@@ -80,9 +83,18 @@ class UProductCardVertical extends StatelessWidget {
                   //products label
                   Row(
                     children: [
-                      Text('Bata' , style: Theme.of(context).textTheme.labelMedium, maxLines: 1, overflow: TextOverflow.ellipsis),
+                      Text(
+                        'Bata',
+                        style: Theme.of(context).textTheme.labelMedium,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                       SizedBox(width: USizes.xs),
-                      Icon(Iconsax.verify5,color: UColors.primary,size: USizes.iconXs),
+                      Icon(
+                        Iconsax.verify5,
+                        color: UColors.primary,
+                        size: USizes.iconXs,
+                      ),
                     ],
                   ),
                   // Spacer(),
@@ -91,26 +103,30 @@ class UProductCardVertical extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('\$76', style: Theme.of(context).textTheme.headlineMedium),
+                      Padding(
+                        padding: const EdgeInsets.only(left: USizes.sm),
+                        child: UProductPriceText(price: '65'),
+                      ),
+                      //Add Button
                       Container(
                         width: USizes.iconLg * 1.2,
                         height: USizes.iconLg * 1.2,
                         decoration: BoxDecoration(
-                            color: UColors.primary,
+                          color: UColors.primary,
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(USizes.cardRadiusLg),
-                            bottomRight: Radius.circular(USizes.productImageRadius),
-                          )
+                            bottomRight: Radius.circular(
+                              USizes.productImageRadius,
+                            ),
+                          ),
                         ),
-                        child: Icon(Iconsax.add,color: UColors.white),
-                      )
+                        child: Icon(Iconsax.add, color: UColors.white),
+                      ),
                     ],
-
                   ),
-
-                  ],
+                ],
               ),
-            )
+            ),
           ],
         ),
       ),

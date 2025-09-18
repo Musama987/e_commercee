@@ -68,7 +68,12 @@ class HomeScreen extends StatelessWidget {
 
                   //vertical cards
                   // UProductCardVertical(),
-                  UGridLayoutHome(),
+                  UGridLayoutHome(
+                    itemCount: 6,
+                    itemBuilder: (context, index) {
+                      return UProductCardVertical();
+                    },
+                  ),
                 ],
               ),
             ),
