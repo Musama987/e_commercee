@@ -1,4 +1,3 @@
-import 'package:e_commercee/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 class UProductPriceText extends StatelessWidget {

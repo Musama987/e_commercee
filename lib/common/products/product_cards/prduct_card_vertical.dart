@@ -2,6 +2,7 @@ import 'package:e_commercee/common/custom_shapes/clipper/rounded_container.dart'
 import 'package:e_commercee/common/home_banner_images/rounded_images.dart';
 import 'package:e_commercee/common/icons/circular_icons.dart';
 import 'package:e_commercee/common/style/shadow.dart';
+import 'package:e_commercee/common/texts/brand_title_with_verify_icons.dart';
 import 'package:e_commercee/common/texts/product_price_text.dart';
 import 'package:e_commercee/common/texts/product_title_text.dart';
 import 'package:e_commercee/utils/constants/colors.dart';
@@ -81,22 +82,7 @@ class UProductCardVertical extends StatelessWidget {
                   SizedBox(height: USizes.spaceBtwItems / 2),
 
                   //products label
-                  Row(
-                    children: [
-                      Text(
-                        'Bata',
-                        style: Theme.of(context).textTheme.labelMedium,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      SizedBox(width: USizes.xs),
-                      Icon(
-                        Iconsax.verify5,
-                        color: UColors.primary,
-                        size: USizes.iconXs,
-                      ),
-                    ],
-                  ),
+                  UBrandTitleWithVerifyIcon(title: 'Bata'),
                   // Spacer(),
 
                   //product price &button
@@ -133,3 +119,7 @@ class UProductCardVertical extends StatelessWidget {
     );
   }
 }
+
+
+
+

@@ -1,4 +1,3 @@
-import 'package:e_commercee/common/custom_shapes/circular_container_home.dart';
 import 'package:e_commercee/common/image_text/vertical_image_text.dart';
 import 'package:e_commercee/utils/constants/colors.dart';
 import 'package:e_commercee/utils/constants/images.dart';

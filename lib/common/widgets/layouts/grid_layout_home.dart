@@ -1,5 +1,3 @@
-import 'package:e_commercee/common/products/product_cards/prduct_card_vertical.dart'
-    show UProductCardVertical;
 import 'package:e_commercee/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 

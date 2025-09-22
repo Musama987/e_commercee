@@ -52,13 +52,13 @@ class USizes{
   // Grid view spacing
   static const double gridViewSpacing = 16.0;
 
-  // Card Sizes
+//primary header height
   static const double homePrimaryHeaderHeight = 320.0; // 320
   static const double storePrimaryHeaderHeight = 170.0; // 170
   static const double profilePrimaryHeaderHeight = 170.0; // 170
 
   static const double brandCardWidth = 170.0; // 170
   static const double brandCardHeight = 70.0; // 70
-//primary header height home
-  static const double primaryHeaderHeight = 320.0;
+
+
 }

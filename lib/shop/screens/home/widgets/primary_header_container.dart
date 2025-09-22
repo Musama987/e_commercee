@@ -6,31 +6,22 @@ import 'package:flutter/material.dart';
 
 class UPrimaryHeaderContainerHome extends StatelessWidget {
   const UPrimaryHeaderContainerHome({
-    super.key, required this.child,
+    super.key,
+    required this.child,
+    required this.height,
   });
 
   final Widget child;
+  final double height;
 
   @override
   Widget build(BuildContext context) {
     return URoundedEdges(
       child: Container(
-        height: USizes.primaryHeaderHeight,
+        height: height,
         color: UColors.primary,
         child: Stack(
           children: [
-          //circular container
-          // Positioned(
-          //   top: -148,
-          //   left: 237,
-          //   child: UCircularContainer(
-          //     height: UDeviceHelper.getScreenHeight(context) * 0.4,
-          //     width: UDeviceHelper.getScreenWidth(context) * 0.5,
-          //     backgroundColor: UColors.white.withValues(alpha: 0.1),
-          //     radius: 500,
-          //   ),
-          // ),
-          //circular container
             Positioned(
               top: -70,
               right: -70,
@@ -40,16 +31,7 @@ class UPrimaryHeaderContainerHome extends StatelessWidget {
                 backgroundColor: UColors.white.withValues(alpha: 0.1),
               ),
             ),
-          // Positioned(
-          //   top: 100,
-          //   left: 290,
-          //   child: UCircularContainer(
-          //     height: UDeviceHelper.getScreenHeight(context) * 0.4,
-          //     width: UDeviceHelper.getScreenWidth(context) * 0.4,
-          //     backgroundColor: UColors.white.withValues(alpha: 0.1),
-          //     radius: 500,
-          //   ),
-          // ),
+
             Positioned(
               top: 90,
               right: -150,

@@ -26,12 +26,13 @@ class HomeScreen extends StatelessWidget {
               children: [
                 //height upgrade + 20
                 SizedBox(
-                  height: USizes.primaryHeaderHeight + 10,
+                  height: USizes.homePrimaryHeaderHeight + 10,
                   // color: Colors.amber,
                 ),
 
                 ///Primary Header Container
                 UPrimaryHeaderContainerHome(
+                  height: USizes.homePrimaryHeaderHeight,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -69,7 +70,7 @@ class HomeScreen extends StatelessWidget {
                   //vertical cards
                   // UProductCardVertical(),
                   UGridLayoutHome(
-                    itemCount: 6,
+                    itemCount: 12,
                     itemBuilder: (context, index) {
                       return UProductCardVertical();
                     },

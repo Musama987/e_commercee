@@ -35,6 +35,15 @@ class UImages{
   static const String product3 = 'assets/products/product3.png';
   static const String product4 = 'assets/products/product2.png';
   static const String product5 = 'assets/products/product1.png';
+  //store logo sections
+  static const String batalogo = 'assets/logo/icons_bata.png';
+
+  //product store image
+  static const String mobile = 'assets/products/mobile.png';
+  static const String shirt = 'assets/products/Shirt.png';
+  static const String product = 'assets/products/product1.png';
+
+
 
 
 
