@@ -15,21 +15,6 @@ class UGridLayoutHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return GridView.builder(
-    //   physics: NeverScrollableScrollPhysics(),
-    //   itemCount: 12,
-    //   padding: EdgeInsets.zero,
-    //   shrinkWrap: true,
-    //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-    //     crossAxisCount: 2,
-    //     mainAxisSpacing: USizes.gridViewSpacing,
-    //     crossAxisSpacing: USizes.gridViewSpacing,
-    //     mainAxisExtent: 238,
-    //   ),
-    //   itemBuilder: (context, index) {
-    //     return UProductCardVertical();
-    //   },
-    // );
     return GridView.builder(
         itemCount: itemCount,
         shrinkWrap: true,
