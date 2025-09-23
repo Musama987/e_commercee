@@ -20,9 +20,9 @@ class USectionHeadingHome extends StatelessWidget {
       children: [
         Text(
           title,
-          style: Theme.of(context).textTheme.headlineSmall,  maxLines: 1, overflow: TextOverflow.ellipsis,
+          style: Theme.of(context).textTheme.headlineSmall,  maxLines: 1, overflow: TextOverflow.ellipsis
         ),
-        TextButton(onPressed: () {}, child: Text(buttonTitle)),
+       if (showActionButton) TextButton(onPressed: () {}, child: Text(buttonTitle)),
       ],
     );
   }

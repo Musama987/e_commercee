@@ -43,6 +43,9 @@ class UImages{
   static const String shirt = 'assets/products/Shirt.png';
   static const String product = 'assets/products/product1.png';
 
+  //profile image
+  static const String profile = 'assets/logo/profile.png';
+
 
 
 
