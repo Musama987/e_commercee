@@ -24,7 +24,7 @@ class UGridLayoutHome extends StatelessWidget {
             crossAxisCount: 2,
             crossAxisSpacing: USizes.gridViewSpacing,
             mainAxisSpacing: USizes.gridViewSpacing,
-            mainAxisExtent: 238),
+            mainAxisExtent: 250),
         itemBuilder: itemBuilder);
   }
 }

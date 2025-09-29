@@ -37,7 +37,7 @@ class UCircularImage extends StatelessWidget {
       height: height,
       padding: EdgeInsets.all(padding),
       decoration: BoxDecoration(
-          color: backgroundColor ?? (dark ? UColors.dark : UColors.light),
+          color: backgroundColor ?? (dark ? UColors.dark : UColors.white),
           borderRadius: BorderRadius.circular(100),
           border: showBorder ? Border.all(color: borderColor, width: borderWidth) : null),
       child: ClipRRect(

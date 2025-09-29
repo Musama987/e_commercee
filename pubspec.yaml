@@ -19,6 +19,7 @@ dependencies:
   iconsax: ^0.0.8
   carousel_slider: ^5.1.1
   flutter_launcher_icons: ^0.14.4
+  readmore: ^3.0.0
 
   #state Management
   get: ^4.7.2
