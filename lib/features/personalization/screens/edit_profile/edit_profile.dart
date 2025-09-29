@@ -58,7 +58,7 @@ class EditProfileScreen extends StatelessWidget {
               Divider(),
               SizedBox(height: USizes.spaceBtwItems),
 
-              TextButton(onPressed: ()=> Get.to(()=> ProfileScreen()), child: Text('Close Account', style: TextStyle(color: Colors.red),))
+              TextButton(onPressed: (){}, child: Text('Close Account', style: TextStyle(color: Colors.red),))
 
             ],
           ),
