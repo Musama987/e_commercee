@@ -60,7 +60,7 @@ class UTexts {
 
   //homeappbar
   static const String homeappbartitle = 'GoodMorning';
-  static const String homeappbarsubtitle = 'Unknown Pro';
+  static const String homeappbarsubtitle = 'Usama Ramzan';
   static const String searchBarTitle = 'Search in Store';
   static const String hometitlecategory = 'Popular Categories';
 

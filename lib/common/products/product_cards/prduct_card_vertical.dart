@@ -94,7 +94,7 @@ class UProductCardVertical extends StatelessWidget {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(left: USizes.sm),
-                        child: UProductPriceText(price: '65'),
+                        child: UProductPriceText(price: '323'),
                       ),
                       //Add Button
                       Container(
