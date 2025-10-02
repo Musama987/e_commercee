@@ -1,5 +1,6 @@
 import 'package:e_commercee/common/texts/section_heading.dart';
 import 'package:e_commercee/features/personalization/screens/address/address.dart';
+import 'package:e_commercee/shop/screens/order/order.dart';
 import 'package:e_commercee/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -50,7 +51,7 @@ class ProfileScreen extends StatelessWidget {
                       icon: Iconsax.bag_tick,
                       title: 'My Orders',
                       subtitle: 'In-progress and Completed Orders',
-                      onTap: (){},
+                      onTap: ()=> Get.to(()=> OrderScreen()),
                   ),
                   SizedBox(height: USizes.spaceBtwSections),
 

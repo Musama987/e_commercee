@@ -1,11 +1,8 @@
 import 'package:e_commercee/common/appbar/appbar.dart';
 import 'package:e_commercee/common/style/padding.dart';
 import 'package:e_commercee/common/texts/section_heading.dart';
-import 'package:e_commercee/features/personalization/screens/profile/profile.dart';
 import 'package:e_commercee/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart' show Get;
-import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'widgets/user_detail_row.dart';
 import 'widgets/user_profile_with_edit_icon.dart';
 

@@ -16,10 +16,11 @@ class onBoardingNextButton extends StatelessWidget {
       // left: 20,
       left: 0,
       right: 0,
-      bottom: USizes.spaceBtwItems / 2,
+      bottom: USizes.defaultSpace,
       child: UElevatedButton(
           onPressed: controller.nextPage ,
           child: Obx(()=> Text(controller.currentIndex.value == 2 ? 'Get Started' : 'Next'))
-    ));
+      )
+    );
   }
 }
