@@ -1,12 +1,12 @@
 import 'package:e_commercee/common/appbar/appbar.dart';
-import 'package:e_commercee/common/products/cart/cart_item.dart';
-import 'package:e_commercee/common/products/cart/product_quantity_with_value_and_remove.dart';
 import 'package:e_commercee/common/style/padding.dart';
-import 'package:e_commercee/common/texts/product_price_text.dart';
 import 'package:e_commercee/common/widgets/button/elevated_button.dart';
+import 'package:e_commercee/shop/screens/checkout/checkout.dart';
 import 'package:e_commercee/utils/constants/sizes.dart';
-import 'package:e_commercee/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import 'widgets/cart_items.dart' show UCartItems;
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});
@@ -24,42 +24,19 @@ class CartScreen extends StatelessWidget {
       /// ------[Body]------
       body: Padding(
           padding: UPadding.screenPadding,
-          child: ListView.separated(
-              separatorBuilder: (context, index) => SizedBox(height: USizes.spaceBtwItems,),
-              itemCount: 10,
-            itemBuilder: (context, index) {
-              return Column(
-                children: [
-
-                  //cart Items
-                  UCartItem(),
-                  SizedBox(height: USizes.spaceBtwItems),
-
-                  //Price icons and counter
-                  Row(
-                    children: [
-                      SizedBox(width: 70.0),
-
-                      UProductQuantityWithAddRemove(),
-                      Spacer(),
-                      UProductPriceText(price: '323'),
-                    ],
-                  )
-
-                ],
-              );
-            },
-          )
+          child: UCartItems()
           ),
 
       /// ------[BottomNavigation]------
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(USizes.defaultSpace),
-        child: UElevatedButton(onPressed: (){}, child: Text('Checkout \$263527')),
+        child: UElevatedButton(onPressed: () => Get.to(()=>CheckOutScreen()), child: Text('Checkout \$263527')),
       ),
       );
   }
 }
+
+
 
 
 

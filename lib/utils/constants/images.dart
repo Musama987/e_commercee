@@ -47,6 +47,11 @@ class UImages{
   static const String profile = 'assets/logo/profile.png';
 
 
+  //payment method
+  static const String mastercard = 'assets/products/logos_mastercard.png';
+  static const String paymentSuccess = 'assets/products/Payment status.png';
+
+
 
 
 
