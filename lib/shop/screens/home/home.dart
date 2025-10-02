@@ -3,6 +3,7 @@ import 'package:e_commercee/common/textfields/searchbar.dart';
 import 'package:e_commercee/common/texts/section_heading.dart';
 import 'package:e_commercee/common/widgets/layouts/grid_layout_home.dart';
 import 'package:e_commercee/shop/controllers/home/home_controller.dart';
+import 'package:e_commercee/shop/screens/all_products/all_product.dart';
 import 'package:e_commercee/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -63,7 +64,7 @@ class HomeScreen extends StatelessWidget {
                   //Vertical product Categories
                   USectionHeadingHome(
                     title: 'Popular Products',
-                    onPressed: () {},
+                    onPressed:() => Get.to(() =>AllProductsScreen()),
                   ),
                   const SizedBox(height: USizes.spaceBtwSections),
 
