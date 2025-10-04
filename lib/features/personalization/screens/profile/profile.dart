@@ -1,5 +1,6 @@
 import 'package:e_commercee/common/texts/section_heading.dart';
 import 'package:e_commercee/features/personalization/screens/address/address.dart';
+import 'package:e_commercee/shop/screens/cart/cart.dart';
 import 'package:e_commercee/shop/screens/order/order.dart';
 import 'package:e_commercee/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
@@ -45,7 +46,7 @@ class ProfileScreen extends StatelessWidget {
                     icon: Iconsax.shopping_cart,
                     title: 'My Cart',
                     subtitle: 'Add, remove products and move to checkout',
-                    onTap: () {},
+                    onTap: ()=> Get.to(()=> CartScreen()),
                   ),
                   SettingsMenuTile(
                       icon: Iconsax.bag_tick,
