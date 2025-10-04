@@ -5,7 +5,7 @@ class UGridLayoutHome extends StatelessWidget {
   const UGridLayoutHome({
     super.key,
     required this.itemCount,
-    this.mainAxisExtent,
+    this.mainAxisExtent = 250,
     required this.itemBuilder,
   });
 
@@ -24,7 +24,7 @@ class UGridLayoutHome extends StatelessWidget {
             crossAxisCount: 2,
             crossAxisSpacing: USizes.gridViewSpacing,
             mainAxisSpacing: USizes.gridViewSpacing,
-            mainAxisExtent: 250),
+            mainAxisExtent: mainAxisExtent),
         itemBuilder: itemBuilder);
   }
 }

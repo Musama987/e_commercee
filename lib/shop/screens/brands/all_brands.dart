@@ -8,27 +8,34 @@ import 'package:e_commercee/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-
 class BrandScreen extends StatelessWidget {
   const BrandScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: UAppBar(showBackArrow: true, title: Text('Brand',style: Theme.of(context).textTheme.headlineSmall)),
+      appBar: UAppBar(
+        showBackArrow: true,
+        title: Text('Brand', style: Theme.of(context).textTheme.headlineSmall),
+      ),
 
       body: SingleChildScrollView(
         child: Padding(
           padding: UPadding.screenPadding,
           child: Column(
             children: [
-
               /// [Text] - Brands
               USectionHeadingHome(title: 'Brands', showActionButton: false),
               SizedBox(height: USizes.spaceBtwItems),
 
               /// List Of Brands
-              UGridLayoutHome(itemCount: 10, itemBuilder: (context, index) => UBrandCard(onTap: () => Get.to(() => BrandProductsScreen()),), mainAxisExtent: 80)
+              UGridLayoutHome(
+                itemCount: 10,
+                itemBuilder: (context, index) => UBrandCard(
+                  onTap: () => Get.to(() => BrandProductsScreen()),
+                ),
+                mainAxisExtent: 80
+              ),
             ],
           ),
         ),
