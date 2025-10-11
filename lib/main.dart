@@ -1,23 +1,31 @@
+import 'package:e_commercee/data/repositories/authentication_repository.dart';
 import 'package:e_commercee/my_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'firebase_options.dart';
 
-
-Future<void> main() async{
+Future<void> main() async {
   ///widget flutter binding
-  final WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  final WidgetsBinding widgetsBinding =
+      WidgetsFlutterBinding.ensureInitialized();
 
   /// flutter native splash
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
+  //Get storage initialization
+  await GetStorage.init();
+
+  //firebase initialization
   await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform
-  );
+    options: DefaultFirebaseOptions.currentPlatform,
+  ).then((value) {
+    Get.put(AuthenticationRepository());
+  });
   //portrait up the screen
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(const MyApp());
 }
-
