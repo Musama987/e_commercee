@@ -1,4 +1,9 @@
-// class HkFullScreenLoader{
+// import 'package:e_commercee/utils/constants/colors.dart';
+// import 'package:e_commercee/utils/helpers/helper_functions.dart';
+// import 'package:flutter/material.dart';
+// import 'package:get/get.dart';
+//
+// class UFullScreenLoader{
 //
 //   static void openLoadingDialog(String text, String animation){
 //     class UFullScreenLoader {
@@ -9,10 +14,10 @@
 //     barrierDismissible: false,
 //     builder: (_) => PopScope(
 //     canPop: false,
-//     canPop: false,
+//     // canPop: false,
 //     child: Container(
-//     color: HkHelperFunctions.isDarkMode(Get.context!) ? HkColors.dark : HkColors.white,
 //     color: UHelperFunctions.isDarkMode(Get.context!) ? UColors.dark : UColors.white,
+//     // color: UHelperFunctions.isDarkMode(Get.context!) ? UColors.dark : UColors.white,
 //     width: double.infinity,
 //     height: double.infinity,
 //     child: Column(

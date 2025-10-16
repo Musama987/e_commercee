@@ -7,6 +7,7 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'firebase_options.dart';
+import 'utils/helpers/network_manager.dart';
 
 Future<void> main() async {
   ///widget flutter binding
@@ -25,6 +26,8 @@ Future<void> main() async {
   ).then((value) {
     Get.put(AuthenticationRepository());
   });
+  // ADD THIS LINE TO INITIALIZE THE NETWORK MANAGER
+  Get.put(NetworkManager());
   //portrait up the screen
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(const MyApp());

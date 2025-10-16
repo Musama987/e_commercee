@@ -1,9 +1,9 @@
-class HkFirebaseAuthException implements Exception {
+class UFirebaseAuthException implements Exception {
   /// The error code associated with the exception.
   final String code;
 
   /// Constructor that takes an error code.
-  HkFirebaseAuthException(this.code);
+  UFirebaseAuthException(this.code);
 
   /// Get the corresponding error message based on the error code.
   String get message {

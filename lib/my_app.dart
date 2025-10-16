@@ -1,3 +1,4 @@
+import 'package:e_commercee/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,13 +15,13 @@ class MyApp extends StatelessWidget {
         theme: UAppTheme.lightTheme,
         darkTheme: UAppTheme.darkTheme,
         debugShowCheckedModeBanner: false,
-        // home: OnboardingScreen(),
-        home: Scaffold(
-          backgroundColor: UColors.primary,
-          body: Center(
-            child: CircularProgressIndicator(color: UColors.white),
-          ),
-        ),
+        home: OnboardingScreen(),
+        // home: Scaffold(
+        //   backgroundColor: UColors.primary,
+        //   body: Center(
+        //     child: CircularProgressIndicator(color: UColors.white),
+        //   ),
+        // ),
     );
         }
 }

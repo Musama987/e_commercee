@@ -1,9 +1,9 @@
-class HkFirebaseException implements Exception {
+class UFirebaseException implements Exception {
   /// The error code associated with the exception.
   final String code;
 
   /// Constructor that takes an error code.
-  HkFirebaseException(this.code);
+  UFirebaseException(this.code);
 
   /// Get the corresponding error message based on the error code.
   String get message {
