@@ -3,7 +3,6 @@ import 'package:e_commercee/common/widgets/button/elevated_button.dart';
 import 'package:e_commercee/common/widgets/button/login_social_button.dart';
 import 'package:e_commercee/common/widgets/login_signup/login_divider.dart';
 import 'package:e_commercee/features/authentication/controllers/signup/signup_controller.dart';
-import 'package:e_commercee/features/authentication/screens/signup/verify_email.dart';
 import 'package:e_commercee/utils/constants/colors.dart';
 import 'package:e_commercee/utils/constants/sizes.dart';
 import 'package:e_commercee/utils/constants/texts.dart';

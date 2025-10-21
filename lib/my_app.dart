@@ -1,8 +1,8 @@
+import 'package:e_commercee/bindings/bindings.dart';
 import 'package:e_commercee/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'utils/constants/colors.dart';
 import 'utils/theme/theme.dart';
 
 class MyApp extends StatelessWidget {
@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
         theme: UAppTheme.lightTheme,
         darkTheme: UAppTheme.darkTheme,
         debugShowCheckedModeBanner: false,
+        initialBinding: UBindings(),
         home: OnboardingScreen(),
         // home: Scaffold(
         //   backgroundColor: UColors.primary,

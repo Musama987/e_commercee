@@ -3,7 +3,6 @@ import 'package:e_commercee/data/repositories/user/user_repository.dart';
 import 'package:e_commercee/features/authentication/models/user_model.dart';
 import 'package:e_commercee/features/authentication/screens/signup/verify_email.dart';
 import 'package:e_commercee/utils/helpers/network_manager.dart';
-import 'package:e_commercee/utils/popups/full_screen_loader.dart';
 import 'package:e_commercee/utils/popups/snackbar_helpers.dart';
 import 'package:firebase_auth/firebase_auth.dart' show UserCredential;
 import 'package:flutter/material.dart';
@@ -13,7 +12,7 @@ class SignUpController extends GetxController {
   static SignUpController get instance => Get.find();
 
   /// Variables
-  final _authRepository = Get.put(AuthenticationRepository());
+  // final _authRepository = Get.put(AuthenticationRepository());
   final signUpFormKey = GlobalKey<FormState>();
   RxBool isPasswordVisible = false.obs;
   RxBool privacyPolicy = false.obs;
@@ -56,7 +55,7 @@ class SignUpController extends GetxController {
       print('--- [5] Calling Authentication Repository to create user... ---');
 
       // UserCredential userCredential = await AuthenticationRepository.instance.registerUser(email.text.trim(), password.text.trim());
-      UserCredential userCredential = await _authRepository.registerUser(email.text.trim(), password.text.trim());
+      UserCredential userCredential = await AuthenticationRepository.instance.registerUser(email.text.trim(), password.text.trim());
       // create user model
       UserModel userModel = UserModel(
         id: userCredential.user!.uid,
@@ -81,7 +80,7 @@ class SignUpController extends GetxController {
       // UFullScreenLoader.stopLoading();
 
       // redirect to verify email screen
-      Get.to(() => VerifyEmailScreen());
+      Get.to(() => VerifyEmailScreen(email: email.text));
     }catch(e){
       // stop loading
       // UFullScreenLoader.stopLoading();
