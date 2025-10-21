@@ -1,0 +1,67 @@
+import 'package:e_commercee/data/repositories/authentication_repository.dart';
+import 'package:e_commercee/utils/helpers/network_manager.dart';
+import 'package:e_commercee/utils/popups/snackbar_helpers.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+
+class LoginController extends GetxController {
+  static LoginController get instance => Get.find();
+
+  //variables
+  final email = TextEditingController();
+  final password = TextEditingController();
+  RxBool isPasswordVisible = false.obs;
+  RxBool rememberMe = false.obs;
+  final loginFormKey = GlobalKey<FormState>();
+
+  final localStorage = GetStorage();
+
+  @override
+  void onInit() {
+   email.text= localStorage.read('Remember_email') ?? '';
+   password.text= localStorage.read('Remember_password') ?? '';
+    super.onInit();
+  }
+
+  Future<void> loginWithEmailAndPassword() async {
+    try {
+      //loader
+      // UFullScreenLoader.openLoadingDialog('Logging You in...');
+
+      //check internet activity
+      final isConnected = await NetworkManager.instance.isConnected();
+      if (!isConnected) {
+        // UFullScreenLoader.stopLoading();
+        USnackBarHelpers.warningSnackBar(title: 'No Internet Connection');
+        return;
+      }
+
+      if (!loginFormKey.currentState!.validate()) {
+        //UFullscreenLoader.stopLoading();
+        return;
+      }
+      //save Data If remember me check
+      if (rememberMe.value) {
+        localStorage.write('RememberMe_email', email.text.trim());
+        localStorage.write('Remember_password', password.text.trim());
+      }
+      //Login User with Email nad password
+      await AuthenticationRepository.instance.loginWithEmailAndPassword(
+        email.text.trim(),
+        password.text.trim(),
+      );
+
+      //UFullscreenLoader.stopLoading();
+
+      //Redirect
+      AuthenticationRepository.instance.screenRedirect();
+    } catch (e) {
+      //UFullscreenLoader.stopLoading();
+      USnackBarHelpers.errorSnackBar(
+        title: 'Login failed',
+        message: e.toString(),
+      );
+    }
+  }
+}

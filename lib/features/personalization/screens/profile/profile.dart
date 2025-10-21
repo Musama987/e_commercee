@@ -1,4 +1,5 @@
 import 'package:e_commercee/common/texts/section_heading.dart';
+import 'package:e_commercee/data/repositories/authentication_repository.dart';
 import 'package:e_commercee/features/personalization/screens/address/address.dart';
 import 'package:e_commercee/shop/screens/cart/cart.dart';
 import 'package:e_commercee/shop/screens/order/order.dart';
@@ -57,7 +58,7 @@ class ProfileScreen extends StatelessWidget {
                   SizedBox(height: USizes.spaceBtwSections),
 
                   /// Logout
-                  SizedBox(width: double.infinity, child: OutlinedButton(onPressed: () {}, child: Text('Logout'))),
+                  SizedBox(width: double.infinity, child: OutlinedButton(onPressed: AuthenticationRepository.instance.logout, child: Text('Logout'))),
                   SizedBox(height: USizes.spaceBtwSections),
                 ],
               ),
