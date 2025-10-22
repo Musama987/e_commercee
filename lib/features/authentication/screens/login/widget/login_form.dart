@@ -2,7 +2,6 @@ import 'package:e_commercee/common/widgets/button/elevated_button.dart';
 import 'package:e_commercee/features/authentication/controllers/login/login_controller.dart';
 import 'package:e_commercee/features/authentication/screens/forget_password/forget_password.dart';
 import 'package:e_commercee/features/authentication/screens/signup/signup.dart';
-import 'package:e_commercee/navigation_menu.dart' show NavigationMenu;
 import 'package:e_commercee/utils/constants/sizes.dart';
 import 'package:e_commercee/utils/constants/texts.dart';
 import 'package:e_commercee/utils/validators/validation.dart';
@@ -52,8 +51,8 @@ class ULoginForm extends StatelessWidget {
                   !controller.isPasswordVisible.value,
                   icon: Icon(
                     controller.isPasswordVisible.value
-                        ? Iconsax.eye
-                        : Iconsax.eye_slash,
+                        ? Iconsax.eye_slash
+                        : Iconsax.eye,
                   ),
                 ),
               ),
@@ -85,14 +84,15 @@ class ULoginForm extends StatelessWidget {
 
       SizedBox(height: USizes.spaceBtwSections),
       //Sign in
-      UElevatedButton(onPressed: () => Get.to(() => NavigationMenu()),
+      UElevatedButton(
+          onPressed: controller.loginWithEmailAndPassword, // Corrected
           child: Text(UTexts.signIn)),
       SizedBox(height: USizes.spaceBtwItems / 2),
       //create Account
       SizedBox(
         width: double.infinity,
         child: OutlinedButton(
-          onPressed: controller.loginWithEmailAndPassword,
+          onPressed: () => Get.to(() => const SignupScreen()), // Corrected
           child: Text(UTexts.createAccount),
         ),
       ),

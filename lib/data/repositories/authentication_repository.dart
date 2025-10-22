@@ -12,6 +12,7 @@ import 'package:flutter_native_splash/flutter_native_splash.dart'
     show FlutterNativeSplash;
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthenticationRepository extends GetxController {
   static AuthenticationRepository get instance => Get.find();
@@ -91,6 +92,41 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
+  /// [GoogleAuthentication]  - Google Authentication
+  Future<UserCredential> signInWithGoogle() async {
+    try {
+
+      // Show Popup to select google account
+      final GoogleSignInAccount? googleAccount = await GoogleSignIn().signIn();
+
+      // Get the auth details from the request
+      final GoogleSignInAuthentication? googleAuth = await googleAccount?.authentication;
+
+      // create credentials
+      final OAuthCredential credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth?.accessToken,
+          idToken: googleAuth?.idToken,
+
+      );
+
+      // Sign In using google credential
+      UserCredential userCredential = await _auth.signInWithCredential(credential);
+
+      return userCredential;
+
+    } on FirebaseAuthException catch (e) {
+      throw UFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw UFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw UFormatException();
+    } on PlatformException catch (e) {
+      throw UPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again';
+    }
+  }
+
   /// [EmailVerification] - Send Mail
   Future<void> sendEmailVerification() async{
     try{
@@ -113,6 +149,7 @@ class AuthenticationRepository extends GetxController {
     //
     try {
       await FirebaseAuth.instance.signOut();
+      await GoogleSignIn().signOut();
      Get.offAll(()=> LoginScreen());
     } on FirebaseAuthException catch (e) {
       throw UFirebaseAuthException(e.code).message;

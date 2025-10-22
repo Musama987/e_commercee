@@ -1,8 +1,10 @@
 
+import 'package:e_commercee/features/authentication/controllers/login/login_controller.dart';
 import 'package:e_commercee/utils/constants/colors.dart';
 import 'package:e_commercee/utils/constants/images.dart';
 import 'package:e_commercee/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ULoginSocialButton extends StatelessWidget {
   const ULoginSocialButton({
@@ -11,6 +13,7 @@ class ULoginSocialButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(LoginController());
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -19,7 +22,7 @@ class ULoginSocialButton extends StatelessWidget {
               border: Border.all(color: UColors.grey),
               borderRadius: BorderRadius.circular(100)
           ),
-          child: IconButton(onPressed: (){}, icon: Image.asset(UImages.googleIcon, height: USizes.iconMd, width: USizes.iconMd,)),
+          child: IconButton(onPressed: controller.googleSignIn, icon: Image.asset(UImages.googleIcon, height: USizes.iconMd, width: USizes.iconMd)),
         ),
         SizedBox(width: USizes.spaceBtwItems),
         Container(

@@ -20,6 +20,12 @@ class UserModel{
     required this.profilePicture,
   });
 
+  //function to get the full Name
+  String get fullName => '$firstName $lastName';
+
+  //static function into split full name into first name and last name
+  static List<String> nameParts(fullName)=> fullName.split(" ");
+
 
   /// static function to create an empty user model
   static UserModel empty() => UserModel(id: "", firstName: "", lastName: "", username: "", email: "", phoneNumber: "", profilePicture: "");

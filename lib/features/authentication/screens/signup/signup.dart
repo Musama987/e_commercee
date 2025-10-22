@@ -115,8 +115,8 @@ class SignupScreen extends StatelessWidget {
                                     !controller.isPasswordVisible.value,
                             icon: Icon(
                               controller.isPasswordVisible.value
-                                  ? Iconsax.eye
-                                  : Iconsax.eye_slash,
+                                  ? Iconsax.eye_slash
+                                  : Iconsax.eye,
                             ),
                           ),
                         ),
