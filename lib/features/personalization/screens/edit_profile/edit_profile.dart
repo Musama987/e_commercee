@@ -1,6 +1,7 @@
 import 'package:e_commercee/common/appbar/appbar.dart';
 import 'package:e_commercee/common/style/padding.dart';
 import 'package:e_commercee/common/texts/section_heading.dart';
+import 'package:e_commercee/features/personalization/controllers/user_controller.dart';
 import 'package:e_commercee/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'widgets/user_detail_row.dart';
@@ -11,6 +12,7 @@ class EditProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final controller = UserController.instance;
     return Scaffold(
       appBar: UAppBar(showBackArrow: true, title: Text('Edit Profile', style: Theme.of(context).textTheme.headlineMedium)),
       body: SingleChildScrollView(
@@ -32,8 +34,8 @@ class EditProfileScreen extends StatelessWidget {
               SizedBox(height: USizes.spaceBtwItems),
 
               /// Account Details
-              UserDetailRow(title: 'Name', value: 'Usama Pro', onTap: (){}),
-              UserDetailRow(title: 'Username', value: 'usamapro12', onTap: (){}),
+              UserDetailRow(title: 'Name', value: controller.user.value.fullName, onTap: (){}),
+              UserDetailRow(title: 'Username', value: controller.user.value.username, onTap: (){}),
               SizedBox(height: USizes.spaceBtwItems),
 
               /// Divider
@@ -45,9 +47,9 @@ class EditProfileScreen extends StatelessWidget {
               SizedBox(height: USizes.spaceBtwItems),
 
               /// Profile Settings
-              UserDetailRow(title: 'User ID', value: '312312', onTap: (){}),
-              UserDetailRow(title: 'Email', value: 'unknownpro@gmail.com', onTap: (){}),
-              UserDetailRow(title: 'Phone Number', value: '+923123456789', onTap: (){}),
+              UserDetailRow(title: 'User ID', value:controller.user.value.id, onTap: (){}),
+              UserDetailRow(title: 'Email', value: controller.user.value.email, onTap: (){}),
+              UserDetailRow(title: 'Phone Number', value: '+92 ${controller.user.value.phoneNumber}', onTap: (){}),
               UserDetailRow(title: 'Gender', value: 'Male', onTap: (){}),
               SizedBox(height: USizes.spaceBtwItems),
 

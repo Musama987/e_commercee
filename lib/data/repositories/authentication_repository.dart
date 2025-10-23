@@ -20,6 +20,8 @@ class AuthenticationRepository extends GetxController {
   final localStorage = GetStorage();
   final _auth = FirebaseAuth.instance;
 
+  User? get currentUser => _auth.currentUser;
+
   @override
   void onReady() {
     // Remove the splash screen

@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:e_commercee/data/repositories/authentication_repository.dart';
 import 'package:e_commercee/features/authentication/models/user_model.dart';
 import 'package:e_commercee/utils/constants/keys.dart';
 import 'package:e_commercee/utils/exceptions/firebase_auth_exceptions.dart';
@@ -39,31 +40,30 @@ class UserRepository extends GetxController{
   }
 
   /// [Read] - Function to fetch user details based on current user
-  // Future<UserModel> fetchUserDetails() async{
-  //   try{
-  //
-  //     final documentSnapshot = await _db.collection(UKeys.userCollection).doc(AuthenticationRepository.instance.currentUser!.uid).get();
-  //
-  //     if(documentSnapshot.exists){
-  //       UserModel user = UserModel.fromSnapshot(documentSnapshot);
-  //       return user;
-  //     }
-  //
-  //     return UserModel.empty();
-  //
-  //   } on FirebaseAuthException catch(e){
-  //     throw UFirebaseAuthException(e.code).message;
-  //   } on FirebaseException catch(e){
-  //     throw UFirebaseException(e.code).message;
-  //   } on FormatException catch(_){
-  //     throw UFormatException();
-  //   } on PlatformException catch(e){
-  //     throw UPlatformException(e.code).message;
-  //   } catch(e){
-  //     throw 'Something went wrong. Please try again';
-  //   }
-  // }
-  //
+  Future<UserModel> fetchUserDetails() async{
+    try{
+
+      final documentSnapshot = await _db.collection(UKeys.userCollection).doc(AuthenticationRepository.instance.currentUser!.uid).get();
+
+      if(documentSnapshot.exists){
+        UserModel user = UserModel.fromSnapshot(documentSnapshot);
+        return user;
+      }
+
+      return UserModel.empty();
+
+    } on FirebaseAuthException catch(e){
+      throw UFirebaseAuthException(e.code).message;
+    } on FirebaseException catch(e){
+      throw UFirebaseException(e.code).message;
+    } on FormatException catch(_){
+      throw UFormatException();
+    } on PlatformException catch(e){
+      throw UPlatformException(e.code).message;
+    } catch(e){
+      throw 'Something went wrong. Please try again';
+    }
+  }
   // /// [Update] - Function to update user single field
   // Future<void> updateSingleField(Map<String, dynamic> map) async{
   //   try{
