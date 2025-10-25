@@ -2,8 +2,10 @@ import 'package:e_commercee/common/appbar/appbar.dart';
 import 'package:e_commercee/common/style/padding.dart';
 import 'package:e_commercee/common/texts/section_heading.dart';
 import 'package:e_commercee/features/personalization/controllers/user_controller.dart';
+import 'package:e_commercee/features/personalization/screens/change_name/change_name.dart';
 import 'package:e_commercee/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'widgets/user_detail_row.dart';
 import 'widgets/user_profile_with_edit_icon.dart';
 
@@ -34,7 +36,7 @@ class EditProfileScreen extends StatelessWidget {
               SizedBox(height: USizes.spaceBtwItems),
 
               /// Account Details
-              UserDetailRow(title: 'Name', value: controller.user.value.fullName, onTap: (){}),
+              UserDetailRow(title: 'Name', value: controller.user.value.fullName, onTap: ()=> Get.to(()=>ChangeNameScreen())),
               UserDetailRow(title: 'Username', value: controller.user.value.username, onTap: (){}),
               SizedBox(height: USizes.spaceBtwItems),
 

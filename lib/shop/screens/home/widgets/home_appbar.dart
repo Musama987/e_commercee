@@ -2,7 +2,6 @@ import 'package:e_commercee/common/appbar/appbar.dart';
 import 'package:e_commercee/common/products/cart/cart_counter_icon.dart';
 import 'package:e_commercee/features/personalization/controllers/user_controller.dart';
 import 'package:e_commercee/utils/constants/colors.dart';
-import 'package:e_commercee/utils/constants/texts.dart';
 import 'package:e_commercee/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

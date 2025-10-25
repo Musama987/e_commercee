@@ -2,7 +2,6 @@ import 'package:e_commercee/features/personalization/controllers/user_controller
 import 'package:e_commercee/features/personalization/screens/edit_profile/edit_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:iconsax/iconsax.dart';
 
 class UserProfileTile extends StatelessWidget {

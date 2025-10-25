@@ -64,23 +64,24 @@ class UserRepository extends GetxController{
       throw 'Something went wrong. Please try again';
     }
   }
+
   // /// [Update] - Function to update user single field
-  // Future<void> updateSingleField(Map<String, dynamic> map) async{
-  //   try{
-  //
-  //     await _db.collection(UKeys.userCollection).doc(AuthenticationRepository.instance.currentUser!.uid).update(map);
-  //   } on FirebaseAuthException catch(e){
-  //     throw UFirebaseAuthException(e.code).message;
-  //   } on FirebaseException catch(e){
-  //     throw UFirebaseException(e.code).message;
-  //   } on FormatException catch(_){
-  //     throw UFormatException();
-  //   } on PlatformException catch(e){
-  //     throw UPlatformException(e.code).message;
-  //   } catch(e){
-  //     throw 'Something went wrong. Please try again';
-  //   }
-  // }
+  Future<void> updateSingleField(Map<String, dynamic> map) async{
+    try{
+
+      await _db.collection(UKeys.userCollection).doc(AuthenticationRepository.instance.currentUser!.uid).update(map);
+    } on FirebaseAuthException catch(e){
+      throw UFirebaseAuthException(e.code).message;
+    } on FirebaseException catch(e){
+      throw UFirebaseException(e.code).message;
+    } on FormatException catch(_){
+      throw UFormatException();
+    } on PlatformException catch(e){
+      throw UPlatformException(e.code).message;
+    } catch(e){
+      throw 'Something went wrong. Please try again';
+    }
+  }
   //
   // /// [Delete] - Function to delete user record
   // Future<void> removeUserRecord(String userId) async{
