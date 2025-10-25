@@ -59,7 +59,8 @@ class EditProfileScreen extends StatelessWidget {
               Divider(),
               SizedBox(height: USizes.spaceBtwItems),
 
-              TextButton(onPressed: (){}, child: Text('Close Account', style: TextStyle(color: Colors.red),))
+              //Close Account
+              TextButton(onPressed: controller.deleteAccountWarningPopup, child: Text('Close Account', style: TextStyle(color: Colors.red),))
 
             ],
           ),

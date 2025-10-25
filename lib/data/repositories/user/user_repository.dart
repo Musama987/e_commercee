@@ -84,22 +84,22 @@ class UserRepository extends GetxController{
   }
   //
   // /// [Delete] - Function to delete user record
-  // Future<void> removeUserRecord(String userId) async{
-  //   try{
-  //     await _db.collection(UKeys.userCollection).doc(userId).delete();
-  //
-  //   } on FirebaseAuthException catch(e){
-  //     throw UFirebaseAuthException(e.code).message;
-  //   } on FirebaseException catch(e){
-  //     throw UFirebaseException(e.code).message;
-  //   } on FormatException catch(_){
-  //     throw UFormatException();
-  //   } on PlatformException catch(e){
-  //     throw UPlatformException(e.code).message;
-  //   } catch(e){
-  //     throw 'Something went wrong. Please try again';
-  //   }
-  // }
+  Future<void> removeUserRecord(String userId) async{
+    try{
+      await _db.collection(UKeys.userCollection).doc(userId).delete();
+
+    } on FirebaseAuthException catch(e){
+      throw UFirebaseAuthException(e.code).message;
+    } on FirebaseException catch(e){
+      throw UFirebaseException(e.code).message;
+    } on FormatException catch(_){
+      throw UFormatException();
+    } on PlatformException catch(e){
+      throw UPlatformException(e.code).message;
+    } catch(e){
+      throw 'Something went wrong. Please try again';
+    }
+  }
   //
   // /// [UploadImage] - Function to upload user profile picture
   // Future<dio.Response> uploadImage(File image) async{

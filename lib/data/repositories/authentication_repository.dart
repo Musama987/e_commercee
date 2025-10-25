@@ -1,3 +1,4 @@
+import 'package:e_commercee/data/repositories/user/user_repository.dart';
 import 'package:e_commercee/features/authentication/screens/login/login.dart';
 import 'package:e_commercee/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:e_commercee/features/authentication/screens/signup/verify_email.dart';
@@ -166,25 +167,25 @@ class AuthenticationRepository extends GetxController {
   }
 
   /// [ForgetPassword] - Send Mail To Reset Password
-  // Future<void> reAuthenticateUserWithEmailAndPassword(String email, String password) async{
-  //   try{
-  //
-  //     AuthCredential credential = EmailAuthProvider.credential(email: email, password: password);
-  //
-  //     await currentUser!.reauthenticateWithCredential(credential);
-  //
-  //   } on FirebaseAuthException catch(e){
-  //     throw UFirebaseAuthException(e.code).message;
-  //   } on FirebaseException catch(e){
-  //     throw UFirebaseException(e.code).message;
-  //   } on FormatException catch(_){
-  //     throw UFormatException();
-  //   } on PlatformException catch(e){
-  //     throw UPlatformException(e.code).message;
-  //   } catch(e){
-  //     throw 'Something went wrong. Please try again';
-  //   }
-  // }
+  Future<void> reAuthenticateUserWithEmailAndPassword(String email, String password) async{
+    try{
+
+      AuthCredential credential = EmailAuthProvider.credential(email: email, password: password);
+
+      await currentUser!.reauthenticateWithCredential(credential);
+
+    } on FirebaseAuthException catch(e){
+      throw UFirebaseAuthException(e.code).message;
+    } on FirebaseException catch(e){
+      throw UFirebaseException(e.code).message;
+    } on FormatException catch(_){
+      throw UFormatException();
+    } on PlatformException catch(e){
+      throw UPlatformException(e.code).message;
+    } catch(e){
+      throw 'Something went wrong. Please try again';
+    }
+  }
 
   /// [Logout] - Logout the user
   Future<void> logout() async {
@@ -193,6 +194,25 @@ class AuthenticationRepository extends GetxController {
       await FirebaseAuth.instance.signOut();
       await GoogleSignIn().signOut();
      Get.offAll(()=> LoginScreen());
+    } on FirebaseAuthException catch (e) {
+      throw UFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw UFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw UFormatException();
+    } on PlatformException catch (e) {
+      throw UPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again';
+    }
+  }
+
+  //Delete Account
+  Future<void> deleteAccount() async {
+    //
+    try {
+       await UserRepository.instance.removeUserRecord(currentUser!.uid);
+       await _auth.currentUser?.delete();
     } on FirebaseAuthException catch (e) {
       throw UFirebaseAuthException(e.code).message;
     } on FirebaseException catch (e) {
