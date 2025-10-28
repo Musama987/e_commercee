@@ -4,7 +4,6 @@ import 'package:e_commercee/features/personalization/controllers/user_controller
 import 'package:e_commercee/utils/constants/sizes.dart';
 import 'package:e_commercee/utils/constants/texts.dart';
 import 'package:e_commercee/utils/validators/validation.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';

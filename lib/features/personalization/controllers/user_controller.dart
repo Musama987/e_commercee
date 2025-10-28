@@ -1,4 +1,3 @@
-import 'package:e_commercee/common/style/padding.dart';
 import 'package:e_commercee/data/repositories/authentication_repository.dart';
 import 'package:e_commercee/data/repositories/user/user_repository.dart';
 import 'package:e_commercee/features/authentication/models/user_model.dart';
@@ -36,23 +35,29 @@ class UserController extends GetxController {
 
   Future<void> saveUserRecord(UserCredential userCredential) async {
     try {
-      //convert Full Name to first name and last name
-      final nameParts = UserModel.nameParts(userCredential.user!.displayName);
-      final username = '${userCredential.user!.displayName}234556';
+      //first update Rx variable then check if user already data store
+      await fetchUserDetails();
+      if(user.value.id.isEmpty){
 
-      //user models
-      UserModel userModel = UserModel(
-        id: userCredential.user!.uid,
-        firstName: nameParts[0],
-        lastName: nameParts.length > 1 ? nameParts.sublist(1).join('') : '',
-        username: username,
-        email: userCredential.user!.email ?? '',
-        phoneNumber: userCredential.user!.phoneNumber ?? '',
-        profilePicture: userCredential.user!.photoURL ?? '',
-      );
+        //convert Full Name to first name and last name
+        final nameParts = UserModel.nameParts(userCredential.user!.displayName);
+        final username = '${userCredential.user!.displayName}234556';
 
-      //save user Record
-      await _userRepository.saveUserRecord(userModel);
+        //user models
+        UserModel userModel = UserModel(
+          id: userCredential.user!.uid,
+          firstName: nameParts[0],
+          lastName: nameParts.length > 1 ? nameParts.sublist(1).join('') : '',
+          username: username,
+          email: userCredential.user!.email ?? '',
+          phoneNumber: userCredential.user!.phoneNumber ?? '',
+          profilePicture: userCredential.user!.photoURL ?? '',
+        );
+
+        //save user Record
+        await _userRepository.saveUserRecord(userModel);
+      }
+
     } catch (e) {
       USnackBarHelpers.warningSnackBar(
         title: 'Data not Saved',
