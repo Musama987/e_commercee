@@ -41,7 +41,7 @@ class UserController extends GetxController {
 
         //convert Full Name to first name and last name
         final nameParts = UserModel.nameParts(userCredential.user!.displayName);
-        final username = '${userCredential.user!.displayName}234556';
+        final username = '${userCredential.user!.displayName}';
 
         //user models
         UserModel userModel = UserModel(
