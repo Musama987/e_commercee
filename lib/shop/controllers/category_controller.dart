@@ -1,13 +1,15 @@
 import 'package:e_commercee/data/repositories/categories/category_repository.dart';
 import 'package:e_commercee/shop/models/category_model.dart';
+import 'package:e_commercee/utils/popups/snackbar_helpers.dart';
 import 'package:get/get.dart';
 
 class CategoryController extends GetxController {
   static CategoryController get instance => Get.find();
 
+  final isLoading = true.obs; // Added loading flag, default to true
   final _categoryRepository = Get.put(CategoryRepository());
   RxList<CategoryModel> allCategories = <CategoryModel>[].obs;
-  static RxList<CategoryModel> featuredCategories = <CategoryModel>[].obs;
+  RxList<CategoryModel> featuredCategories = <CategoryModel>[].obs;
 
   @override
   void onInit() {
@@ -15,26 +17,33 @@ class CategoryController extends GetxController {
     super.onInit();
   }
 
-  // Load category data
+  ///load category data
   Future<void> fetchCategories() async {
     try {
-      // Fetch categories from data source (Firestore, API, etc.)
+      //show loader
+      isLoading(true);
+
+      //fetch categories
       final categories = await _categoryRepository.getAllCategories();
 
-      print(categories);
-
-      // Update the categories list
+      //update the categories list
       allCategories.assignAll(categories);
 
-      // Filter featured categories
+      //filter featured categories
       featuredCategories.assignAll(allCategories
-          .where((category) => category.isFeatured)
-          .take(2)
+          .where((category) => category.isFeatured && category.parentId.isEmpty)
+          .take(8)
           .toList());
-
-      final c = featuredCategories;
     } catch (e) {
-      Get.snackbar('Oh Snap!', e.toString());
+      USnackBarHelpers.errorSnackBar(
+          title: 'Oh Snap!', message: e.toString());
+    } finally {
+      //remove loader
+      isLoading(false);
     }
   }
+
+//load selected category data
+
+//get category or sub category data
 }

@@ -38,10 +38,10 @@ class CategoryModel {
       // Map JSON Record to the Model
       return CategoryModel(
         id: document.id,
-        name: data['Name'] ?? '',
-        image: data['Image'] ?? '',
+        name: data['name'] ?? '',
+        image: data['image'] ?? '',
         parentId: data['ParentId'] ?? '',
-        isFeatured: data['IsFeatured'] ?? false,
+        isFeatured: data['isFeatured'] ?? false,
       );
     } else {
       return CategoryModel.empty();
