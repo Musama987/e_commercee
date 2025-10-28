@@ -1,4 +1,5 @@
 import 'package:e_commercee/common/image_text/vertical_image_text.dart';
+import 'package:e_commercee/shop/controllers/category_controller.dart';
 import 'package:e_commercee/shop/screens/sub_category/sub_category.dart';
 import 'package:e_commercee/utils/constants/colors.dart';
 import 'package:e_commercee/utils/constants/images.dart';
@@ -12,6 +13,7 @@ class UHomeCategories extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final categoryController = Get.put(CategoryController());
     return Padding(
       padding: EdgeInsets.only(left: USizes.spaceBtwSections),
       child: Column(
@@ -24,23 +26,29 @@ class UHomeCategories extends StatelessWidget {
             ).textTheme.headlineSmall!.apply(color: UColors.white),
           ),
           SizedBox(height: USizes.spaceBtwItems),
-          SizedBox(
-            height: 80,
-            child: ListView.separated(
-              separatorBuilder: (context, index) =>
-                  SizedBox(width: USizes.spaceBtwItems),
-              scrollDirection: Axis.horizontal,
-              itemCount: 10,
-              itemBuilder: (context, index) {
-                return UVerticalImageText(
-                  title: 'Sports Categories',
-                  image: UImages.runningIcon,
-                  textColor: UColors.white,
-                  onTap: ()=> Get.to(()=> SubCategoryScreen()),
-                );
-              },
+           SizedBox(
+              height: 80,
+              child: ListView.separated(
+                separatorBuilder: (context, index) =>
+                    SizedBox(width: USizes.spaceBtwItems),
+                scrollDirection: Axis.horizontal,
+                itemCount: 10,
+                itemBuilder: (_, index) {
+                  final category = CategoryController.featuredCategories[index];
+                  return UVerticalImageText(
+                    // title: 'Sports Categories',
+                    // image: UImages.runningIcon,
+                    // textColor: UColors.white,
+                    // onTap: ()=> Get.to(()=> SubCategoryScreen()),
+                    title: category.name,
+                    image: UImages.runningIcon,
+                    textColor: UColors.white,
+                    onTap: ()=> Get.to(()=> SubCategoryScreen()),
+                  );
+                },
+              ),
             ),
-          ),
+
         ],
       ),
     );

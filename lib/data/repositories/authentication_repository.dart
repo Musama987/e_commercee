@@ -12,13 +12,14 @@ import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart'
     show FlutterNativeSplash;
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
+// import 'package:get_storage/get_storage.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthenticationRepository extends GetxController {
   static AuthenticationRepository get instance => Get.find();
 
-  final localStorage = GetStorage();
+  // final localStorage = GetStorage();
   final _auth = FirebaseAuth.instance;
 
   User? get currentUser => _auth.currentUser;
@@ -26,34 +27,56 @@ class AuthenticationRepository extends GetxController {
   @override
   void onReady() {
     // Remove the splash screen
+    // FlutterNativeSplash.remove();
     FlutterNativeSplash.remove();
+    screenRedirect();
   }
 
   /// Function to redirect to the right screen
-  void screenRedirect() {
-
+  // void screenRedirect() {
+  //
+  //   final user = _auth.currentUser;
+  //   if(user != null){
+  //
+  //     // Check if user is verified
+  //     if(user.emailVerified){
+  //       // if verified, go to navigation menu
+  //       Get.offAll(() => NavigationMenu());
+  //     }else{
+  //
+  //       // if not verified, go to verify email screen
+  //       Get.offAll(() => VerifyEmailScreen(email: user.email));
+  //     }
+  //   }else {
+  //     // write isFirstTime If Null
+  //     localStorage.writeIfNull('isFirstTime', true);
+  //
+  //     // Check if user is first time
+  //     localStorage.read('isFirstTime') != true
+  //         ? Get.to(() => LoginScreen()) // If not first time, go to login screen
+  //         : Get.to(
+  //           () => OnboardingScreen(),
+  //     ); // if first time, go to onboarding screen
+  //   }
+  // }
+  /// [screenRedirect] - Redirects to the appropriate screen
+  screenRedirect() async {
     final user = _auth.currentUser;
-    if(user != null){
-
-      // Check if user is verified
-      if(user.emailVerified){
-        // if verified, go to navigation menu
-        Get.offAll(() => NavigationMenu());
-      }else{
-
-        // if not verified, go to verify email screen
-        Get.offAll(() => VerifyEmailScreen(email: user.email));
+    if (user != null) {
+      if (user.emailVerified) {
+        Get.offAll(() => const NavigationMenu());
+      } else {
+        Get.offAll(() => VerifyEmailScreen(email: _auth.currentUser?.email));
       }
-    }else {
-      // write isFirstTime If Null
-      localStorage.writeIfNull('isFirstTime', true);
+    } else {
+      final prefs = await SharedPreferences.getInstance();
+      final isFirstTime = prefs.getBool('isFirstTime') ?? true;
 
-      // Check if user is first time
-      localStorage.read('isFirstTime') != true
-          ? Get.to(() => LoginScreen()) // If not first time, go to login screen
-          : Get.to(
-            () => OnboardingScreen(),
-      ); // if first time, go to onboarding screen
+      if (isFirstTime) {
+        Get.offAll(() => const OnboardingScreen());
+      } else {
+        Get.offAll(() => const LoginScreen());
+      }
     }
   }
 

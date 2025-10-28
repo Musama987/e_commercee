@@ -22,6 +22,7 @@ dependencies:
   readmore: ^3.0.0
   flutter_native_splash: ^2.4.6
   connectivity_plus: ^7.0.0
+  shared_preferences: ^2.2.3 # Add this line
 
   #state Management
   get: ^4.7.2
