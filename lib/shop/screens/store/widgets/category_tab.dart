@@ -2,6 +2,7 @@ import 'package:e_commercee/common/products/product_cards/prduct_card_vertical.d
 import 'package:e_commercee/common/texts/section_heading.dart';
 import 'package:e_commercee/common/widgets/brands/brand_showcase.dart';
 import 'package:e_commercee/common/widgets/layouts/grid_layout_home.dart';
+import 'package:e_commercee/shop/models/product_model.dart';
 import 'package:e_commercee/utils/constants/images.dart';
 import 'package:e_commercee/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
@@ -45,7 +46,7 @@ class UCategoryTab extends StatelessWidget {
               UGridLayoutHome(
                 itemCount: 4,
                 itemBuilder: (context, index) {
-                  return UProductCardVertical();
+                  return UProductCardVertical(model: ProductModel(id: "", name: "", brandName: "brandName", price: 0, description: "", status: "", discount: 0),);
                 },
               ),
 

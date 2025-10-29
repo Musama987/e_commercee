@@ -1,4 +1,4 @@
-import 'package:e_commercee/data/repositories/user/user_repository.dart';
+import 'package:e_commercee/data/repositories/repository.dart';
 import 'package:e_commercee/features/authentication/screens/login/login.dart';
 import 'package:e_commercee/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:e_commercee/features/authentication/screens/signup/verify_email.dart';
@@ -234,7 +234,7 @@ class AuthenticationRepository extends GetxController {
   Future<void> deleteAccount() async {
     //
     try {
-       await UserRepository.instance.removeUserRecord(currentUser!.uid);
+       await Repository.instance.removeUserRecord(currentUser!.uid);
        await _auth.currentUser?.delete();
     } on FirebaseAuthException catch (e) {
       throw UFirebaseAuthException(e.code).message;

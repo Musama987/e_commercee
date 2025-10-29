@@ -1,5 +1,5 @@
 import 'package:e_commercee/data/repositories/authentication_repository.dart';
-import 'package:e_commercee/data/repositories/user/user_repository.dart';
+import 'package:e_commercee/data/repositories/repository.dart';
 import 'package:e_commercee/features/authentication/models/user_model.dart';
 import 'package:e_commercee/features/authentication/screens/signup/verify_email.dart';
 import 'package:e_commercee/utils/helpers/network_manager.dart';
@@ -69,8 +69,8 @@ class SignUpController extends GetxController {
 
       // save user record
       print('--- [6] Saving user data to Firestore... ---');
-      final userRepository = Get.put(UserRepository());
-      await userRepository.saveUserRecord(userModel);
+      final repository = Get.put(Repository());
+      await repository.saveUserRecord(userModel);
       print('--- [SUCCESS] User data saved to Firestore. ---');
 
       // success message

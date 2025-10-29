@@ -1,5 +1,5 @@
 import 'package:e_commercee/data/repositories/authentication_repository.dart';
-import 'package:e_commercee/data/repositories/user/user_repository.dart';
+import 'package:e_commercee/data/repositories/repository.dart';
 import 'package:e_commercee/features/authentication/models/user_model.dart';
 import 'package:e_commercee/features/authentication/screens/login/login.dart';
 import 'package:e_commercee/features/personalization/screens/edit_profile/widgets/re_authenticate_user_form.dart';
@@ -14,7 +14,7 @@ class UserController extends GetxController {
   static UserController get instance => Get.find();
 
   //variables
-  final _userRepository = Get.put(UserRepository());
+  final _userRepository = Get.put(Repository());
   Rx<UserModel> user = UserModel
       .empty()
       .obs;

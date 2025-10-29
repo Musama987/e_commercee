@@ -1,6 +1,7 @@
 import 'package:e_commercee/common/style/padding.dart';
 import 'package:e_commercee/common/texts/section_heading.dart';
 import 'package:e_commercee/common/widgets/button/elevated_button.dart';
+import 'package:e_commercee/shop/models/product_model.dart';
 import 'package:e_commercee/shop/screens/product_details/widgets/product_meta_data.dart';
 import 'package:e_commercee/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +11,8 @@ import 'widgets/bottom_add_to_cart.dart';
 import 'widgets/product_thumbnail_slider.dart';
 
 class ProductDetailScreen extends StatelessWidget {
-  const ProductDetailScreen({super.key});
+  final ProductModel model;
+  const ProductDetailScreen({super.key,required this.model});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +33,7 @@ class ProductDetailScreen extends StatelessWidget {
                   // SizedBox(height: USizes.spaceBtwSections),
 
                  ///Product Details Price & text
-                  UProductMetaData(),
+                  UProductMetaData(model: model),
                   SizedBox(height: USizes.spaceBtwSections),
 
                   /// Attributes
@@ -45,7 +47,7 @@ class ProductDetailScreen extends StatelessWidget {
                   SizedBox(height: USizes.spaceBtwItems),
 
                   ReadMoreText(
-                    'This is a product of iPhone 11 with 512 GB, This is a product of iPhone 11 with 512 GB, This is a product of iPhone 11 with 512 GB, This is a product of iPhone 11 with 512 GB, This is a product of iPhone 11 with 512 GB, This is a product of iPhone 11 with 512 GB',
+                    model.description,
                     trimLines: 2,
                     trimMode: TrimMode.Line,
                     trimCollapsedText: ' Show more',

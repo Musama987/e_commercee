@@ -5,6 +5,7 @@ import 'package:e_commercee/common/style/shadow.dart';
 import 'package:e_commercee/common/texts/brand_title_with_verify_icons.dart';
 import 'package:e_commercee/common/texts/product_price_text.dart';
 import 'package:e_commercee/common/texts/product_title_text.dart';
+import 'package:e_commercee/shop/models/product_model.dart';
 import 'package:e_commercee/shop/screens/product_details/product_details.dart';
 import 'package:e_commercee/utils/constants/colors.dart';
 import 'package:e_commercee/utils/constants/images.dart';
@@ -15,13 +16,14 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart' show Iconsax;
 
 class UProductCardVertical extends StatelessWidget {
-  const UProductCardVertical({super.key});
+  final ProductModel model;
+  const UProductCardVertical({super.key,required this.model});
 
   @override
   Widget build(BuildContext context) {
     final dark = UHelperFunctions.isDarkMode(context);
     return GestureDetector(
-      onTap: ()=> Get.to(()=> ProductDetailScreen()),
+      onTap: ()=> Get.to(()=> ProductDetailScreen(model: model,)),
       child: Container(
         width: 180,
         padding: const EdgeInsets.all(1),
@@ -53,7 +55,7 @@ class UProductCardVertical extends StatelessWidget {
                         vertical: USizes.xs,
                       ),
                       child: Text(
-                        '20%',
+                        "${model.discount}%",
                         style: Theme.of(
                           context,
                         ).textTheme.labelLarge!.apply(color: UColors.black),
@@ -81,11 +83,11 @@ class UProductCardVertical extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  UProductTitleText(title: 'Blue Bata Shoes', smallSize: true),
+                  UProductTitleText(title: model.name, smallSize: true),
                   SizedBox(height: USizes.spaceBtwItems / 2),
 
                   //products label
-                  UBrandTitleWithVerifyIcon(title: 'Bata'),
+                  UBrandTitleWithVerifyIcon(title: model.brandName),
                   // Spacer(),
 
                   //product price &button
@@ -94,7 +96,7 @@ class UProductCardVertical extends StatelessWidget {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(left: USizes.sm),
-                        child: UProductPriceText(price: '323'),
+                        child: UProductPriceText(price: "${model.price}"),
                       ),
                       //Add Button
                       Container(

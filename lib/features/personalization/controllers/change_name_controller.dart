@@ -1,4 +1,4 @@
-import 'package:e_commercee/data/repositories/user/user_repository.dart';
+import 'package:e_commercee/data/repositories/repository.dart';
 import 'package:e_commercee/features/personalization/controllers/user_controller.dart';
 import 'package:e_commercee/navigation_menu.dart';
 import 'package:e_commercee/utils/helpers/network_manager.dart';
@@ -12,7 +12,6 @@ static ChangeNameController get instance => Get.find();
 
 //Variables
   final _userController = UserController.instance;
-  final _userRepository = UserRepository.instance;
 final firstName = TextEditingController();
 final lastName = TextEditingController();
 
@@ -51,7 +50,7 @@ final updateUserFormKey = GlobalKey<FormState>();
     //Update UserName From fireStore
     Map<String, dynamic> map ={'firstName': firstName.text,
       'lastName': lastName.text};
-    await _userRepository.updateSingleField(map);
+    await Repository.instance.updateSingleField(map);
 
     //update User From Rx user
     _userController.user.value.firstName = firstName.text;

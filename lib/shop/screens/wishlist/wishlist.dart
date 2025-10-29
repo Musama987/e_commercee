@@ -7,8 +7,12 @@ import 'package:e_commercee/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
+import '../../models/product_model.dart';
+
 class WishListScreen extends StatelessWidget {
   const WishListScreen({super.key});
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +38,7 @@ class WishListScreen extends StatelessWidget {
           padding: const EdgeInsets.all(USizes.defaultSpace),
           child: UGridLayoutHome(
             itemCount: 12,
-            itemBuilder: (context, index) => UProductCardVertical(),
+            itemBuilder: (context, index) => UProductCardVertical(model: ProductModel(id: "", name: "", brandName: "brandName", price: 0, description: "", status: "", discount: 0),),
           ),
         ),
       ),

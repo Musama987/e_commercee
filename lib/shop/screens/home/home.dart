@@ -2,6 +2,7 @@ import 'package:e_commercee/common/products/product_cards/prduct_card_vertical.d
 import 'package:e_commercee/common/textfields/searchbar.dart';
 import 'package:e_commercee/common/texts/section_heading.dart';
 import 'package:e_commercee/common/widgets/layouts/grid_layout_home.dart';
+import 'package:e_commercee/shop/controllers/category_controller.dart';
 import 'package:e_commercee/shop/controllers/home/home_controller.dart';
 import 'package:e_commercee/shop/screens/all_products/all_product.dart';
 import 'package:e_commercee/utils/constants/sizes.dart';
@@ -18,6 +19,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(HomeController());
+    final categoryController = Get.put(CategoryController());
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -70,12 +72,26 @@ class HomeScreen extends StatelessWidget {
 
                   //vertical cards
                   // UProductCardVertical(),
-                  UGridLayoutHome(
-                    itemCount: 12,
-                    itemBuilder: (context, index) {
-                      return UProductCardVertical();
-                    },
-                  ),
+                  // UGridLayoutHome(
+                  //   itemCount: 12,
+                  //   itemBuilder: (context, index) {
+                  //     return UProductCardVertical();
+                  //   },
+                  // ),
+                  Obx(() {
+                    if (categoryController.isLoading.value) {
+                      return const Center(child: CircularProgressIndicator());
+                    }
+                    if (categoryController.popularProducts.isEmpty) {
+                      return const Center(child: Text('No popular products found!'));
+                    }
+                    return UGridLayoutHome(
+                      itemCount: categoryController.popularProducts.length,
+                      itemBuilder: (_, index) => UProductCardVertical(
+                        model: categoryController.popularProducts[index],
+                      ),
+                    );
+                  }),
                 ],
               ),
             ),

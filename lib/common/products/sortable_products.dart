@@ -4,6 +4,8 @@ import 'package:e_commercee/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
+import '../../shop/models/product_model.dart';
+
 class USortableProducts extends StatelessWidget {
   const USortableProducts({
     super.key,
@@ -24,7 +26,7 @@ class USortableProducts extends StatelessWidget {
         SizedBox(height: USizes.spaceBtwSections),
 
         /// Products
-        UGridLayoutHome(itemCount: 10, itemBuilder: (context, index) => UProductCardVertical(),)
+        UGridLayoutHome(itemCount: 10, itemBuilder: (context, index) =>  UProductCardVertical(model: ProductModel(id: "", name: "", brandName: "brandName", price: 0, description: "", status: "", discount: 0),),)
       ],
     );
   }
