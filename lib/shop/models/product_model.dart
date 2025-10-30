@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:get/get.dart';
 
 class ProductModel {
   String id;
@@ -8,6 +9,7 @@ class ProductModel {
   String description;
   String status;
   int discount;
+  RxBool isWishListed = false.obs; // ✅ made observable
 
   ProductModel({
     required this.id,
@@ -17,19 +19,12 @@ class ProductModel {
     required this.description,
     required this.status,
     required this.discount,
+    bool isWishListed = false,
+  }) {
+    this.isWishListed.value = isWishListed;
+  }
 
-  });
-
-  // Convert model to JSON structure for storing data in Firebase.
-  // Map<String, dynamic> toJson() {
-  //   return {
-  //     'Name': name,
-  //     'Thumbnail': thumbnail,
-  //     'Price': price,
-  //   };
-  // }
-
-  // Factory method to create a ProductModel from a Firebase document snapshot.
+  /// Factory method to create a ProductModel from a Firebase document snapshot.
   factory ProductModel.fromSnapshot(DocumentSnapshot<Map<String, dynamic>> document) {
     if (document.data() != null) {
       final data = document.data()!;
@@ -41,11 +36,21 @@ class ProductModel {
         description: data['description'] ?? '',
         status: data['status'] ?? '',
         discount: (data['discount'] ?? 0).toInt(),
+        isWishListed: false,
       );
     } else {
       return ProductModel.empty();
     }
   }
 
-  static ProductModel empty() => ProductModel(id: '', name: '', brandName: '', price: 0.0, description: '', status: '', discount: 0);
+  static ProductModel empty() => ProductModel(
+    id: '',
+    name: '',
+    brandName: '',
+    price: 0.0,
+    description: '',
+    status: '',
+    discount: 0,
+    isWishListed: false,
+  );
 }

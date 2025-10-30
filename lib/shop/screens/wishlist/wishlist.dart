@@ -5,6 +5,7 @@ import 'package:e_commercee/common/products/product_cards/prduct_card_vertical.d
 import 'package:e_commercee/common/widgets/layouts/grid_layout_home.dart';
 import 'package:e_commercee/navigation_menu.dart';
 import 'package:e_commercee/utils/constants/sizes.dart';
+import 'package:e_commercee/utils/constants/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -37,20 +38,24 @@ class WishListScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(USizes.defaultSpace),
           child: UGridLayoutHome(
-            itemCount: 12,
-            itemBuilder: (context, index) => UProductCardVertical(
-              model: ProductModel(
-                id: "",
-                name: "",
-                brandName: "brandName",
-                price: 0,
-                description: "",
-                status: "",
-                discount: 0,
-              ),
-              appService: AppService(),
-              onPressed: ()=> null,
-            ),
+            itemCount: Utils.wishListProductList.length,
+            itemBuilder: (context, index) {
+              final model = Utils.wishListProductList[index];
+              return UProductCardVertical(
+                model: ProductModel(
+                  id: model.id,
+                  name: model.name,
+                  brandName: model.brandName,
+                  price: model.price,
+                  description: model.description,
+                  status: model.status,
+                  discount: model.discount,
+                  isWishListed: model.isWishListed.value,
+                ),
+                appService: AppService(),
+                onPressed: () => null,
+              );
+            },
           ),
         ),
       ),

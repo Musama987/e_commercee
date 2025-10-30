@@ -1,7 +1,6 @@
 import 'package:e_commercee/app_service.dart';
 import 'package:e_commercee/common/custom_shapes/clipper/rounded_container.dart';
 import 'package:e_commercee/common/home_banner_images/rounded_images.dart';
-import 'package:e_commercee/common/icons/circular_icons.dart';
 import 'package:e_commercee/common/style/shadow.dart';
 import 'package:e_commercee/common/texts/brand_title_with_verify_icons.dart';
 import 'package:e_commercee/common/texts/product_price_text.dart';
@@ -16,17 +15,25 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart' show Iconsax;
 
+import '../../../utils/constants/utils.dart';
+
 class UProductCardVertical extends StatelessWidget {
   final ProductModel model;
   final AppService appService;
   final Function() onPressed;
-  const UProductCardVertical({super.key,required this.model,required this.appService,required this.onPressed});
+
+  const UProductCardVertical({
+    super.key,
+    required this.model,
+    required this.appService,
+    required this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
     final dark = UHelperFunctions.isDarkMode(context);
     return GestureDetector(
-      onTap: ()=> Get.to(()=> ProductDetailScreen(model: model,)),
+      onTap: () => Get.to(() => ProductDetailScreen(model: model)),
       child: Container(
         width: 180,
         padding: const EdgeInsets.all(1),
@@ -71,14 +78,25 @@ class UProductCardVertical extends StatelessWidget {
                     right: 0,
                     top: 0,
                     child: Obx(
-                      ()=> UCircularIcon(
-                        icon: appService.isWishListed.value
-                        ? Iconsax.heart: Iconsax.heart5,
-                        color: Colors.red,
-                        appService: appService,
-                        onPressed:(){
-
-                        },
+                      () => Container(
+                        decoration: BoxDecoration(
+                          color: Colors.transparent,
+                          borderRadius: BorderRadius.circular(1000),
+                        ),
+                        child: IconButton(
+                          onPressed: () {
+                            model.isWishListed.value =
+                                !model.isWishListed.value;
+                            toggle(model);
+                          },
+                          icon: Icon(
+                            model.isWishListed.value
+                                ? Iconsax.heart5
+                                : Iconsax.heart,
+                            color: Colors.red,
+                            size: 30,
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -133,8 +151,14 @@ class UProductCardVertical extends StatelessWidget {
       ),
     );
   }
+
+  void toggle(ProductModel model) {
+    if (Utils.wishListProductList.any((d) => d.name == model.name)) {
+      Utils.wishListProductList.removeWhere(
+        (d) => d.name == model.name,
+      ); // unselect if tapped again
+    } else {
+      Utils.wishListProductList.add(model);
+    }
+  }
 }
-
-
-
-

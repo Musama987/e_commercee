@@ -1,6 +1,8 @@
 import 'package:e_commercee/app_service.dart';
+import 'package:e_commercee/shop/models/product_model.dart';
 import 'package:e_commercee/utils/constants/colors.dart';
 import 'package:e_commercee/utils/constants/sizes.dart';
+import 'package:e_commercee/utils/constants/utils.dart';
 import 'package:e_commercee/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 
@@ -36,11 +38,11 @@ class UCircularIcon extends StatelessWidget {
               ? UColors.dark.withValues(alpha: 0.2)
               : UColors.light.withValues(alpha: 0.2),
           borderRadius: BorderRadius.circular(1000)),
-      child: IconButton(onPressed: (){
-        appService.isWishListed.value =
-        !appService.isWishListed.value;
+      child: IconButton(onPressed: () {
+
 
       }, icon: Icon(icon, color: color, size: size)),
     );
   }
+
 }

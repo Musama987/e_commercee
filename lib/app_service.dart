@@ -7,7 +7,6 @@ import 'package:get_storage/get_storage.dart';
 
 class AppService extends GetxService {
   late GetStorage box;
-  var isWishListed = false.obs;
 
 
   Future<AppService> init() async {
@@ -16,14 +15,4 @@ class AppService extends GetxService {
     return this;
   }
 
-  @override
-  void onInit() {
-    super.onInit();
-    isWishListed.value = box.read<bool>('isWishListed') ?? false;
-  }
-
-  void setWishListed(bool value) {
-    isWishListed.value = value;
-    box.write('isWishListed', value);
-  }
 }
