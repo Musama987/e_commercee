@@ -1,3 +1,4 @@
+import 'package:e_commercee/app_service.dart';
 import 'package:e_commercee/common/custom_shapes/clipper/rounded_container.dart';
 import 'package:e_commercee/common/home_banner_images/rounded_images.dart';
 import 'package:e_commercee/common/icons/circular_icons.dart';
@@ -56,7 +57,7 @@ class UProductCardHorizontal extends StatelessWidget {
                   ),
 
                   /// Favourite Button
-                  Positioned(right: 0, top: 0, child: UCircularIcon(icon: Iconsax.heart5, color: Colors.red))
+                  Positioned(right: 0, top: 0, child: UCircularIcon(icon: Iconsax.heart5, color: Colors.red, appService: AppService(),),)
                 ],
               ),
             ),

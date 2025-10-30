@@ -1,4 +1,5 @@
 
+import 'package:e_commercee/app_service.dart';
 import 'package:e_commercee/common/home_banner_images/user_profile_logo.dart';
 import 'package:e_commercee/common/icons/circular_icons.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,7 @@ class UserProfileWithEditIcon extends StatelessWidget {
             bottom: 0,
             left: 0,
             right: 0,
-            child: Center(child: UCircularIcon(icon: Iconsax.edit)))
+            child: Center(child: UCircularIcon(icon: Iconsax.edit, appService: AppService(),)))
       ],
     );
   }

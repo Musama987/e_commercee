@@ -48,8 +48,7 @@
 // }
 
 import 'package:e_commercee/common/image_text/vertical_image_text.dart';
-// import 'package:e_commercee/common/widgets/loaders/category_shimmer.dart';
-import 'package:e_commercee/shop/controllers/category_controller.dart';
+import 'package:e_commercee/shop/screens/home/home_controller.dart';
 import 'package:e_commercee/shop/screens/sub_category/sub_category.dart';
 import 'package:e_commercee/utils/constants/colors.dart';
 import 'package:e_commercee/utils/constants/images.dart';
@@ -65,7 +64,7 @@ class UHomeCategories extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final categoryController = Get.put(CategoryController());
+    final controller = Get.put(HomeController());
     return Padding(
       padding: const EdgeInsets.only(left: USizes.spaceBtwSections),
       child: Column(
@@ -90,7 +89,7 @@ class UHomeCategories extends StatelessWidget {
               // }
 
               // 2. Check if list is empty
-              if (categoryController.featuredCategories.isEmpty) {
+              if (controller.featuredCategories.isEmpty) {
                 return Center(
                     child: Text('No Categories Found!',
                         style: Theme.of(context)
@@ -101,14 +100,14 @@ class UHomeCategories extends StatelessWidget {
 
               // 3. Display categories
               return ListView.separated(
-                itemCount: categoryController.featuredCategories.length,
+                itemCount: controller.featuredCategories.length,
                 separatorBuilder: (context, index) {
                   return const SizedBox(width: USizes.spaceBtwItems);
                 },
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   // This line is safe now because of the checks above
-                  final category = categoryController.featuredCategories[index];
+                  final category = controller.featuredCategories[index];
                   return UVerticalImageText(
                     image: UImages.runningIcon,
                     title: category.name,

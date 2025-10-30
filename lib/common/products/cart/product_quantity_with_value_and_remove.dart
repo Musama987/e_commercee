@@ -1,3 +1,4 @@
+import 'package:e_commercee/app_service.dart';
 import 'package:e_commercee/common/icons/circular_icons.dart';
 import 'package:e_commercee/utils/constants/colors.dart';
 import 'package:e_commercee/utils/constants/sizes.dart';
@@ -23,6 +24,7 @@ class UProductQuantityWithAddRemove extends StatelessWidget {
           size: USizes.iconSm,
           color: dark ? UColors.white : UColors.black,
           backgroundColor: dark ? UColors.darkerGrey : UColors.light,
+          appService: AppService(),
         ),
         SizedBox(width: USizes.spaceBtwItems),
 
@@ -41,6 +43,7 @@ class UProductQuantityWithAddRemove extends StatelessWidget {
           size: USizes.iconSm,
           color: UColors.white,
           backgroundColor: UColors.primary,
+          appService: AppService(),
         )
       ],
     );

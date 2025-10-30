@@ -1,15 +1,15 @@
-import 'package:e_commercee/common/products/product_cards/prduct_card_vertical.dart' show UProductCardVertical;
+import 'package:e_commercee/common/products/product_cards/prduct_card_vertical.dart'
+    show UProductCardVertical;
 import 'package:e_commercee/common/widgets/layouts/grid_layout_home.dart';
 import 'package:e_commercee/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
+import '../../app_service.dart';
 import '../../shop/models/product_model.dart';
 
 class USortableProducts extends StatelessWidget {
-  const USortableProducts({
-    super.key,
-  });
+  const USortableProducts({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,15 +18,32 @@ class USortableProducts extends StatelessWidget {
         /// Filter Field
         DropdownButtonFormField(
           decoration: InputDecoration(prefixIcon: Icon(Iconsax.sort)),
-          onChanged: (value){},
-          items: ['Filter', 'Lower Price', 'Higher Price', 'Sale', 'Newest'].map((filter) {
-            return DropdownMenuItem(value: filter, child: Text(filter));
-          },).toList(),
+          onChanged: (value) {},
+          items: ['Filter', 'Lower Price', 'Higher Price', 'Sale', 'Newest']
+              .map((filter) {
+                return DropdownMenuItem(value: filter, child: Text(filter));
+              })
+              .toList(),
         ),
         SizedBox(height: USizes.spaceBtwSections),
 
         /// Products
-        UGridLayoutHome(itemCount: 10, itemBuilder: (context, index) =>  UProductCardVertical(model: ProductModel(id: "", name: "", brandName: "brandName", price: 0, description: "", status: "", discount: 0),),)
+        UGridLayoutHome(
+          itemCount: 10,
+          itemBuilder: (context, index) => UProductCardVertical(
+            model: ProductModel(
+              id: "",
+              name: "",
+              brandName: "brandName",
+              price: 0,
+              description: "",
+              status: "",
+              discount: 0,
+            ),
+            appService: AppService(),
+            onPressed: () => null,
+          ),
+        ),
       ],
     );
   }

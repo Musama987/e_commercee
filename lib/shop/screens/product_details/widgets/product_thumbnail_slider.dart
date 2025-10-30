@@ -1,3 +1,4 @@
+import 'package:e_commercee/app_service.dart';
 import 'package:e_commercee/common/appbar/appbar.dart';
 import 'package:e_commercee/common/home_banner_images/rounded_images.dart';
 import 'package:e_commercee/common/icons/circular_icons.dart';
@@ -50,7 +51,7 @@ class UProductThumbnailAndSlider extends StatelessWidget {
           /// [AppBar] - Back Arrow & Favourite Button
           UAppBar(
             showBackArrow: true,
-            actions: [UCircularIcon(icon: Iconsax.heart5, color: Colors.red)],
+            actions: [UCircularIcon(icon: Iconsax.heart5, color: Colors.red, appService: AppService(),)],
           )
         ],
       ),

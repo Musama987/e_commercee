@@ -18,7 +18,7 @@ class Repository extends GetxController {
 
   final _db = FirebaseFirestore.instance;
 
-
+//user details
   Future<void> saveUserRecord(UserModel user) async{
     try{
 
@@ -100,6 +100,7 @@ class Repository extends GetxController {
       throw 'Something went wrong. Please try again';
     }
   }
+  // home screen categories
   // Get all categories
   Future<List<CategoryModel>> getAllCategories() async {
     try {
@@ -117,7 +118,7 @@ class Repository extends GetxController {
     }
   }
 
-
+  //home popular products
   // Get popular products
   Future<List<ProductModel>> getPopularProducts() async {
     try {

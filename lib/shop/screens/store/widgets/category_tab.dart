@@ -7,6 +7,8 @@ import 'package:e_commercee/utils/constants/images.dart';
 import 'package:e_commercee/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../app_service.dart';
+
 class UCategoryTab extends StatelessWidget {
   const UCategoryTab({super.key});
 
@@ -22,20 +24,12 @@ class UCategoryTab extends StatelessWidget {
             children: [
               /// Brand Showcase 1
               UBrandShowcase(
-                images: [
-                  UImages.product,
-                  UImages.mobile,
-                  UImages.shirt,
-                ],
+                images: [UImages.product, UImages.mobile, UImages.shirt],
               ),
 
               /// Brand Showcase 2
               UBrandShowcase(
-                images: [
-                  UImages.product,
-                  UImages.mobile,
-                  UImages.shirt,
-                ],
+                images: [UImages.product, UImages.mobile, UImages.shirt],
               ),
               SizedBox(height: USizes.spaceBtwItems),
 
@@ -46,7 +40,19 @@ class UCategoryTab extends StatelessWidget {
               UGridLayoutHome(
                 itemCount: 4,
                 itemBuilder: (context, index) {
-                  return UProductCardVertical(model: ProductModel(id: "", name: "", brandName: "brandName", price: 0, description: "", status: "", discount: 0),);
+                  return UProductCardVertical(
+                    model: ProductModel(
+                      id: "",
+                      name: "",
+                      brandName: "brandName",
+                      price: 0,
+                      description: "",
+                      status: "",
+                      discount: 0,
+                    ),
+                    appService: AppService(),
+                    onPressed: () => null,
+                  );
                 },
               ),
 

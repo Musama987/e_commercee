@@ -1,3 +1,4 @@
+import 'package:e_commercee/app_service.dart';
 import 'package:e_commercee/utils/constants/colors.dart';
 import 'package:e_commercee/utils/constants/sizes.dart';
 import 'package:e_commercee/utils/helpers/helper_functions.dart';
@@ -13,12 +14,14 @@ class UCircularIcon extends StatelessWidget {
     this.height,
     this.width,
     this.color,
+    required this.appService,
   });
 
   final double? width, height, size;
   final IconData? icon;
   final Color? color, backgroundColor;
   final VoidCallback? onPressed;
+  final AppService appService;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +36,11 @@ class UCircularIcon extends StatelessWidget {
               ? UColors.dark.withValues(alpha: 0.2)
               : UColors.light.withValues(alpha: 0.2),
           borderRadius: BorderRadius.circular(1000)),
-      child: IconButton(onPressed: onPressed, icon: Icon(icon, color: color, size: size)),
+      child: IconButton(onPressed: (){
+        appService.isWishListed.value =
+        !appService.isWishListed.value;
+
+      }, icon: Icon(icon, color: color, size: size)),
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:e_commercee/app_service.dart';
 import 'package:e_commercee/data/repositories/authentication_repository.dart';
 import 'package:e_commercee/my_app.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ Future<void> main() async {
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   //Get storage initialization
-  await GetStorage.init();
+  // await GetStorage.init();
 
   //firebase initialization
   await Firebase.initializeApp(
@@ -27,5 +28,8 @@ Future<void> main() async {
   });
   //portrait up the screen
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
+  await Get.putAsync<AppService>(() => AppService().init());
+
   runApp(const MyApp());
 }

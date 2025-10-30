@@ -1,3 +1,4 @@
+import 'package:e_commercee/app_service.dart';
 import 'package:e_commercee/common/custom_shapes/clipper/rounded_container.dart';
 import 'package:e_commercee/common/home_banner_images/rounded_images.dart';
 import 'package:e_commercee/common/icons/circular_icons.dart';
@@ -17,7 +18,9 @@ import 'package:iconsax/iconsax.dart' show Iconsax;
 
 class UProductCardVertical extends StatelessWidget {
   final ProductModel model;
-  const UProductCardVertical({super.key,required this.model});
+  final AppService appService;
+  final Function() onPressed;
+  const UProductCardVertical({super.key,required this.model,required this.appService,required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -67,9 +70,16 @@ class UProductCardVertical extends StatelessWidget {
                   Positioned(
                     right: 0,
                     top: 0,
-                    child: UCircularIcon(
-                      icon: Iconsax.heart5,
-                      color: Colors.red,
+                    child: Obx(
+                      ()=> UCircularIcon(
+                        icon: appService.isWishListed.value
+                        ? Iconsax.heart: Iconsax.heart5,
+                        color: Colors.red,
+                        appService: appService,
+                        onPressed:(){
+
+                        },
+                      ),
                     ),
                   ),
                 ],

@@ -1,11 +1,18 @@
+import 'package:carousel_slider/carousel_controller.dart';
+import 'package:e_commercee/app_service.dart';
 import 'package:e_commercee/data/repositories/repository.dart';
-import 'package:e_commercee/shop/models/category_model.dart';
-import 'package:e_commercee/shop/models/product_model.dart';
-import 'package:e_commercee/utils/popups/snackbar_helpers.dart';
 import 'package:get/get.dart';
 
-class CategoryController extends GetxController {
-  static CategoryController get instance => Get.find();
+import '../../../utils/popups/snackbar_helpers.dart';
+import '../../models/category_model.dart';
+import '../../models/product_model.dart';
+
+class HomeController extends GetxController{
+  static HomeController get instance => Get.find();
+
+  //variables
+final carouselController = CarouselSliderController();
+RxInt currentIndex = 0.obs;
 
   final isLoading = true.obs; // Added loading flag, default to true
   final _repository = Get.put(Repository());
@@ -20,6 +27,10 @@ class CategoryController extends GetxController {
     super.onInit();
   }
 
+//on carousel page changes
+void onPageChanged(int index){
+  currentIndex.value = index;
+}
 
   void fetchPopularProducts() async {
     try {
@@ -57,8 +68,4 @@ class CategoryController extends GetxController {
       isLoading(false);
     }
   }
-
-//load selected category data
-
-//get category or sub category data
 }
